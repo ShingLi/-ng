@@ -1,0 +1,45 @@
+<!--pages/userCenter/userCenter.wxml-->
+<view class=''>
+    <view class='header'>
+        <!--头部的背景图  -->
+        <image class='header_bg' 
+            src='../../images/bg@2x.png' mode='scaleToFill'></image>
+        <view class='header_info'>
+            <image class='avater' src='{{userInfo.headimgurl}}'></image>
+            <view class='text'>
+                <text class='desc'>{{userInfo.nickname}}</text>
+                <text class='title'>会员等级:{{userInfo.level}}</text>
+            </view>
+        </view>
+    </view>
+    <view class='zhen'>
+        <image src='../../images/title.png' mode='aspectFit'
+            class='caozhen'
+        ></image>
+        <text>个人中心</text>
+    </view>
+    <!--内容区  -->
+    <view class='group'>
+        <view class='cell border_t'>
+            <label>头像</label>
+            <view class='cell_right'>
+                <image class='avatar' src='{{userCenterInfo.headimgurl}}'></image>
+                <image class='arrow' src='../../images/usercenter/arrow.png'></image>
+            </view>
+        </view>
+        <view class='cell border_t'>
+            <label>昵称</label>
+            <view class='cell_right'>
+                <text>{{userCenterInfo.nickname}}</text>
+                <image class='arrow' src='../../images/usercenter/arrow.png'></image>
+            </view>
+        </view>
+        <view class='cell'>
+            <label>手机号</label>
+            <view class='cell_right'>
+                <text class='tel_text'>点击绑定</text>
+                <image class='arrow' src='../../images/usercenter/arrow.png'></image>
+            </view>
+        </view>
+    </view>
+</view>

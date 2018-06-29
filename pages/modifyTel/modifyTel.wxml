@@ -1,0 +1,22 @@
+<!--pages/modifyTel/modifyTel.wxml-->
+<view class='ccontainer'>
+    <view class='top'>
+        <image class='lock' src='../../images/userCenter/lock.png'></image>
+        <view>绑定手机号</view>
+    </view>
+    <form bindsubmit="formSubmit">
+        <view class='cell border_t'>
+            <input type='number' placeholder='请输入手机号' name='tel' bindinput='input_val' maxlength='11'></input>
+        </view>
+        <view class='cell border_t'>
+            <input type='number' placeholder='请输入验证码' name='code'></input>
+            <button class='code' bindtap='getCode'>{{codeStatus}}</button>
+        </view>
+        <view>
+            <button class='succ' form-type='submit'>完成</button>
+        </view>
+    </form>
+</view>
+<!--  -->
+<zan-toast id="zan-toast-test"></zan-toast>
+<zan-toast id="zan-toast-test1"></zan-toast>

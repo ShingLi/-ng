@@ -1,0 +1,104 @@
+/* pages/integral/integral.wxss */
+.liwu{
+    display: block;
+    width: 300rpx;
+    height: 276rpx;
+    margin: auto;
+}
+.integral_wrap{
+    margin:60rpx auto 40rpx auto;
+    text-align:center;
+}
+.my_integral{
+    font-size: 36rpx;
+    color: rgb(51,51,51)
+}
+.show_btn{
+    margin:40rpx 225rpx 0 225rpx;
+}
+.show_btn button{
+    height: 60rpx;
+    line-height: 60rpx;
+    color: #fff;
+    font-size: 36rpx;
+    background-color: rgb(51,51,51);
+    border-radius: 30rpx;
+}
+.integral_list_wrap{
+    width: 670rpx;
+    margin: 0 auto 30rpx auto;
+    border-radius: 5rpx;
+    
+    border: 1px solid rgba(7,17,27,.2)
+}
+.more{
+    display:flex;
+    width:60%;
+    margin:28rpx auto;
+}
+.line{
+    flex:1;
+    position:relative;
+    top:-8px;
+    border-bottom: 1rpx solid rgba(7,17,27,.2)
+}
+.text{
+    margin:0 auto;
+    padding: 0 12rpx;
+    font-size: 24rpx;
+}
+.integral_list{
+    margin:28rpx 97rpx;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.item{
+    height: 150rpx;
+    width: 120rpx;
+    position: relative;
+    margin-bottom: 20rpx;
+    
+}
+.hb{
+    width: 120rpx;
+    height: 150rpx;
+    position: absolute;
+    z-index: -1;
+}
+.rmb{
+    position: absolute;
+    top:60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 40rpx;
+    color: #fff;
+}
+.list-item{
+    font-size: 0;
+    margin-bottom: 20rpx;
+}
+.list-item text{
+    text-align: center;
+    display:block;
+}
+.mk{
+    font-size: 24rpx;
+    color: rgb(51,51,51)
+}
+.num{
+    margin-top:10rpx;
+    font-size: 24rpx;
+    color: rgb(255,91,1)
+}
+.btn_d{
+    margin:10rpx auto 0 auto;
+    width: 80rpx;
+    height: 28rpx;
+    line-height: 28rpx;
+    font-size: 24rpx;
+    text-align: center;
+    color: rgb(51,51,51);
+    border: 1rpx solid rgba(7,17,27,.2);
+    border-radius: 10rpx;
+}

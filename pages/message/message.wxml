@@ -1,0 +1,80 @@
+<!--pages/message/message.wxml-->
+<view>
+    <view class='header'>
+        <!--头部的背景图  -->
+        <image class='header_bg' 
+            src='../../images/bg@2x.png' mode='scaleToFill'></image>
+        <view class='header_info'>
+            <image class='avater' src='{{userInfo.headimgurl}}'></image>
+            <view class='text'>
+                <text class='desc'>{{userInfo.nickname}}</text>
+                <text class='title'>会员等级:{{userInfo.level}}</text>
+            </view>
+        </view>
+    </view>
+    <!--  -->
+    <view class='zhen'>
+        <image src='../../images/title.png' mode='aspectFit'
+            class='caozhen'
+        ></image>
+        <text>消息中心</text>
+    </view>
+    <!--消息中心的容器  -->
+    <block wx:if='{{result.unread_message.length||result.ready_message.length}}'>
+        <view class='msgBox'>
+        <!--未读消息列表  -->
+            <block wx:for='{{result.unread_message}}' wx:key='item.id' wx:for-item='_item'>
+                <view class='item'>
+                    <view class='top' catchtap='showDetail' data-index='{{index}}' data-id='{{_item.id}}'>
+                        <image src='../../images/01/weidu.png' class='laba'></image>
+                        <!--内容区域  -->
+                        <view class='context'>
+                            <view class='time'>
+                                <view>{{_item.title}}</view>
+                                <text>{{_item.message_time}}</text>
+                            </view>
+                            <view class='thumbnail' wx:if='{{!_item.show}}'>
+                                {{_item.message_cont}}
+                            </view>
+                        </view>
+                        
+                    </view>
+                    <view class='bottom' wx:if='{{_item.show}}'>
+                        {{_item.message_cont}}
+                    </view>
+                </view>
+            </block>
+            <!--分割线  -->
+            <view class='nomore' wx:if='{{result.ready_message.length}}'>
+                <view class='line'></view>
+                <view class='text'>已读消息</view>
+                <view class='line'></view>
+            </view>
+            <!-- 已读消息 -->
+            <view class='item' wx:for='{{result.ready_message}}' wx:key='item.id'>
+                <view class='top' catchtap='readMsg' data-index='{{index}}'>
+                    <image src='../../images/01/yidu.png' class='laba'></image>
+                    <!--内容区域  -->
+                    <view class='context'>
+                        <view class='time'>
+                            <view>{{item.title}}</view>
+                            <text>{{item.message_time}}</text>
+                        </view>
+                        <view class='thumbnail' wx:if='{{!item.show}}'>
+                            {{item.message_cont}}
+                        </view>
+                    </view>
+                    
+                </view>
+                <view class='bottom' wx:if='{{item.show}}'>
+                    {{item.message_cont}}
+                </view>
+            </view>
+        </view>
+    </block>
+    <view class='nomore full' wx:else>
+        <view class='line'></view>
+        <view class='text'>暂时没有任何消息哦··</view>
+        <view class='line'></view>
+    </view>
+</view>

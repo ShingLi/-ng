@@ -1,0 +1,68 @@
+<!--pages/sign/sign.wxml-->
+<view>
+     <view class='header'>
+        <!--头部的背景图  -->
+        <image class='header_bg' 
+            src='../../images/bg@2x.png' mode='scaleToFill'></image>
+        <view class='header_info'>
+            <image class='avater' src='{{userInfo.headimgurl}}'></image>
+            <view class='text'>
+                <text class='desc'>{{userInfo.nickname}}</text>
+                <text class='title'>会员等级:{{userInfo.level}}</text>
+            </view>
+        </view>
+    </view>
+    <!--签到-->
+    <view class='zhen'>
+        <image src='../../images/title.png' mode='aspectFit'
+            class='caozhen'
+        ></image>
+        <text>签到</text>
+    </view>
+    <!-- 签到的容器 -->
+    <view class='signWrap'>
+        <image class='sign_bg' src='../../images/sign_bg.png' ></image>
+        <view class='context'>
+            <view class='date'>{{year}}-{{month}}-{{date}}</view>
+            <view class='hybrid'>
+                <view>累计签到  <text>{{result.all_sign_day}}</text>  天</view>
+                <view>共获得积分  <text>{{result.all_integral_day}}</text> 分</view>
+            </view>
+            <!--month  -->
+            <view class='zzz'>
+                <!--月份  -->
+                <view class='week'>
+                    <view>日</view>
+                    <view>一</view>
+                    <view>二</view>
+                    <view>三</view>
+                    <view>四</view>
+                    <view>五</view>
+                    <view>六</view>
+                </view>
+                <!--每天的号数  -->
+                <view class='day_wrap'>
+                    <view wx:for='{{nbsp+1}}' wx:key='*this'>\n</view>
+                    <view wx:for="{{arr.length}}" wx:key='*this'>
+                        <text 
+                            class="num {{index +1==arr[index]?'color':''}}"
+                            
+                        >{{item+1}}</text>
+                        <image src='../../images/sign.png' 
+                                class='small_sign' 
+                                wx:if="{{index +1==arr[index]}}"
+                        >
+                        </image> 
+                    </view>
+                </view>
+                <!--签到  -->
+                <view class='circle' bindtap="calendarSign">
+                    <image src='../../images/btn_sign.png' class='btn_sign'></image>
+                </view>
+                <view class='nosign'>
+                    {{desc}}
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

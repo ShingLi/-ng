@@ -1,0 +1,46 @@
+<!--pages/recharge_detail/detail.wxml-->
+<view>
+    <view class='header'>
+        <!--头部的背景图  -->
+        <image class='header_bg' 
+            src='../../images/bg@2x.png' mode='scaleToFill'></image>
+        <view class='header_info'>
+            <image class='avater' src='{{userInfo.avatarUrl}}'></image>
+            <view class='text'>
+                <text class='desc'>{{userInfo.nickname}}</text>
+                <text class='title'>会员等级:lv{{userInfo.level_type}}</text>
+            </view>
+        </view>
+    </view>
+    <!--余额  -->
+    <view class='zhen'>
+        <image src='../../images/title.png' mode='aspectFit'
+            class='caozhen'
+        ></image>
+        <text>充值</text>
+    </view>
+    <!--区域  -->
+    <view>
+        <form bindsubmit='formSubmit'>
+            <view class='form-container'>
+                <view class='form-control'>
+                    <label>微信昵称</label>
+                    <text>{{userInfo.nickname}}</text>
+                </view>
+                <view class='form-control'>
+                    <label>会员ID</label>
+                    <text>{{userInfo.id}}</text>
+                </view>
+                <view class='form-control normal'>
+                    <label>充值金额</label>
+                    <view>
+                        <input placeholder='500元' type='number' name='number'></input>
+                    </view>
+                </view>
+                <view class='form-control'>
+                    <button form-type='submit'>充值</button>
+                </view>
+            </view>
+        </form>
+    </view>
+</view>

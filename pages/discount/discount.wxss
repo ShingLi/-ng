@@ -1,0 +1,40 @@
+/* pages/discount/discount.wxss */
+.discount_cart{
+    display: block;
+    width: 301rpx;
+    height: 278rpx;
+    margin:28rpx auto 60rpx auto;
+}
+.zhekou{
+    font-size: 36rpx;
+    color: rgb(51,51,51);
+
+}
+.jizhe{
+    margin-top: 12rpx;  
+    font-size: 72rpx;
+    color: rgb(51,51,51)
+}
+.btn{
+    margin: 52rpx 75rpx 30rpx 75rpx;
+}
+.btn button{
+    height: 80rpx;
+    line-height: 80rpx;
+    color: #fff;
+    font-size: 36rpx;
+    background-color: rgb(51,51,51)
+}
+.rule{
+    margin:0 75rpx;
+    padding-bottom: 50rpx;
+}
+.rule text{
+    font-size: 24rpx;
+    color: rgb(153,153,153)
+}
+.rule view{
+    line-height: 40rpx;
+    font-size: 24rpx;
+    color: rgb(153,153,153) 
+}

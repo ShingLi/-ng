@@ -1,0 +1,32 @@
+{
+    "pages":[
+        
+        "pages/modifyTel/modifyTel",
+        "pages/userCenter/userCenter",
+        "pages/index/index",
+        "pages/bill/bill",
+        "pages/card/card",
+        "pages/discount/discount",
+        "pages/level/level",
+        "pages/sign/sign",
+        "pages/recharge_detail/detail",
+        "pages/payment/payment",
+        "pages/reflect_detail/detail",
+        "pages/message/message",
+        "pages/giving/giving",
+        "pages/smile/smile",
+        "pages/integral_detail/integral_detail",
+        "pages/push_detail/push_detail",
+        "pages/integral/integral",
+        "pages/recharge/recharge",
+        "pages/return/return",
+        "pages/reward/reward",
+        "pages/reflect/reflect"
+    ],
+    "window":{
+        "backgroundTextStyle":"ligth",
+        "navigationBarBackgroundColor": "#FF8A7F",
+        "navigationBarTitleText": "欢乐牧场",
+        "navigationBarTextStyle":"black"
+    }
+}

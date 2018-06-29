@@ -1,0 +1,200 @@
+/* pages/bill/bill.wxss */
+.tab{
+    width: 302rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    margin: 20rpx auto 40rpx auto;
+    display: flex;
+    border:1rpx solid rgb(51,51,51);
+    border-radius: 40rpx;
+    overflow: hidden;
+    font-size: 0;
+}
+.tab-item{
+    font-size: 30rpx;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    border-right: 1rpx solid rgb(51,51,51)
+}
+.tab-item:last-child{
+    border: none
+}
+.active{
+    color: #fff;
+    background-color: rgb(51,51,51)
+}
+/*swiper  */
+.swiper{
+    min-height: 700rpx;
+}
+.swiperWrap{
+    margin: 15rpx 82rpx;
+}
+.item{
+    position: relative;
+    padding:25rpx 40rpx 0 40rpx;
+    margin-bottom: 20rpx;
+}
+.item_bg{
+    position: absolute;
+    left: 0;
+    top:0;
+    width: 586rpx;
+    z-index: -1;
+    height: 442rpx;
+}
+.item>view{
+    margin: auto;
+    width: 505rpx;
+    border-top: 1rpx dotted rgb(111,111,111)
+}
+.name{
+    height: 70rpx;
+    line-height: 70rpx;
+    text-align: center;
+    font-size: 36rpx;
+    color:rgb(21,49,122)
+}
+.name2{
+    height: 70rpx;
+    line-height: 70rpx;
+    text-align: center;
+    font-size: 36rpx;
+    color:rgb(221,37,37)
+}
+.address{
+    height: 99rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* line-height: 99rpx; */
+    font-size: 0
+}
+.address2{
+    height: 99rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* line-height: 99rpx; */
+    font-size: 0
+}
+.address>text{
+    display: inline-block;
+    margin-left: 80rpx;
+    font-size: 24rpx;
+    color: rgb(21,49,122)
+}
+.address2>text{
+    display: inline-block;
+    margin-left: 80rpx;
+    font-size: 24rpx;
+    color:rgb(221,37,37)
+}
+.detail{
+    height: 153rpx;
+    overflow-y: auto;
+}
+.detail2{
+    height: 115rpx;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around
+}
+.detail>view{
+    margin-left: 80rpx;
+}
+.detail2>view{
+    margin-left: 80rpx;
+}
+.detail>view text{
+    display: inline-block;
+}
+.top>text{
+    font-size: 24rpx;
+    color: rgb(21,49,122)
+}
+.top2{
+    display: flex;
+    justify-content: space-between
+}
+.top2>text{
+    font-size: 24rpx;
+    color:rgb(221,37,37)
+}
+.detail>view>text:first-child{
+    width: 200rpx;
+}
+.detail>view>text:nth-child(2){
+    width: 75rpx;
+}
+.middle>text{
+    font-size: 30rpx;
+    color: rgb(21,49,122)
+}
+.middle2{
+    display: flex;
+    justify-content: space-between
+}
+.middle2>text{
+    font-size: 30rpx;
+    color:rgb(221,37,37)
+}
+.bottom>text{
+    font-size: 30rpx;
+    color: rgb(21,49,122)
+}
+.money{
+    height: 45rpx;
+    line-height: 45rpx;
+    text-align: right;
+}
+.money2{
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: right;
+}
+.money text{
+    margin-right: 20rpx;
+    font-size: 24rpx;
+    color: rgb(21,49,122)
+}
+.money2 text{
+    margin-right: 20rpx;
+    font-size: 24rpx;
+    color:rgb(221,37,37)    
+}
+.act{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.act>view{
+    font-size: 24rpx;
+    color: rgb(21,49,122)
+}
+.act image{
+    display: inline-block;
+    vertical-align: middle;
+    width: 36rpx;
+    height: 36rpx;
+}
+.act>view:first-child{
+    margin-left: 80rpx;
+}
+.act>view:last-child{
+    
+    margin-right: 65rpx;
+}
+/*没有数据时候的显示  */
+.noResult{
+    position: fixed;
+    top: 50%;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    color: #777;
+    font-size: 24rpx;
+    z-index: 9;
+}

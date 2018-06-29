@@ -1,0 +1,33 @@
+/* pages/integral_detail/integral_detail.wxss */
+.integral_list{
+    margin: 52rpx 154rpx 20rpx 154rpx;
+}
+.item{
+    display: flex;
+    height: 152rpx;
+    overflow: hidden;
+
+}
+.time{
+    flex: 0 0 16rpx;
+    width: 16rpx;
+    height: 152rpx;
+}
+.time_list{
+    flex:1;
+    margin-left: 48rpx;
+
+}
+.time_list view:nth-child(1){
+    font-size: 30rpx;
+    color: rgb(51,51,51);
+    margin-bottom: 20rpx;
+}
+.mb{
+    font-size: 30rpx;
+    color: rgb(51,51,51)
+}
+.mb text{
+    font-size: 48rpx;
+    color: rgb(51,51,51))
+}

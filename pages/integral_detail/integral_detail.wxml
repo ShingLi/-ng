@@ -1,0 +1,36 @@
+<!--pages/integral_detail/integral_detail.wxml-->
+<view>
+    <view class='header'>
+        <!--头部的背景图  -->
+        <image class='header_bg' 
+            src='../../images/bg@2x.png' mode='scaleToFill'></image>
+        <view class='header_info'>
+            <image class='avater' src='{{userInfo.avatarUrl}}'></image>
+            <view class='text'>
+                <text class='desc'>{{userInfo.nickname}}</text>
+                <text class='title'>会员等级:lv{{userInfo.level_type}}</text>
+            </view>
+        </view>
+    </view>
+    <!--积分  -->
+    <view class='zhen'>
+        <image src='../../images/title.png' mode='asprectFit'
+            class='caozhen'
+        ></image>
+        <text>积分明细</text>
+    </view>
+    <!-- 积分详细 -->
+    <view class='integral_list'>
+    <!--循坏的列表  -->
+        <view class='item' wx:for="{{integral_detail}}" wx:key='item.id'>
+            <image class='time' src='../../images/time.png'></image>
+            <view class='time_list'>
+                <view>{{item.cerated_time}}</view>
+                <view class='mb'>
+                    {{item.jfmx}}  积分
+                    <text>{{item.score}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

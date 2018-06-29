@@ -1,0 +1,47 @@
+<!--pages/giving/giving.wxml-->
+<view>
+    <view class='header'>
+        <!--头部的背景图  -->
+        <image class='header_bg' 
+            src='../../images/bg@2x.png' mode='scaleToFill'></image>
+        <view class='header_info'>
+            <image class='avater' src='{{userInfo.headimgurl}}'></image>
+            <view class='text'>
+                <text class='desc'>{{userInfo.nickname}}</text>
+                <text class='title'>会员等级:{{userInfo.level}}</text>
+            </view>
+        </view>
+    </view>
+    <!--  -->
+    <view class='zhen'>
+        <image src='../../images/title.png' mode='asprectFit'
+            class='caozhen'
+        ></image>
+        <text>充值赠送</text>
+    </view>
+    <!--  -->
+    <view class='giving_wrap'>
+    <!--循环的列表  -->
+        <block wx:for='{{result}}' wx:key='item.id'>
+            <view class='list_item'>
+                <image src='../../images/01/giving.png'></image> 
+                <text class='one'>￥{{item.recharge_amount}}</text>
+                <text class='two'>￥{{item.donation_amount}}</text>
+                <text class='three'>积分 +{{item.gift_integral}} </text>
+            </view>
+        </block>
+    </view>
+    <!--  充值记录-->
+    <view class='record'>
+        <block wx:if='{{result.length}}'>
+            <navigator url='/pages/push_detail/push_detail' hover-class='none'>
+                查看充值记录
+            </navigator>
+        </block>
+    </view>
+</view>
+<zan-toptips
+  content="暂时没有数据"
+  duration="{{ duration }}"
+  is-show="{{ $zanui.toptips.show }}"
+/>

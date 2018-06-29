@@ -1,0 +1,109 @@
+<!--pages/card/card.wxml-->
+<view style='height:100%'>
+    <view class='header'>
+        <!--头部的背景图  -->
+        <image class='header_bg' 
+            src='../../images/bg@2x.png' mode='scaleToFill'></image>
+        <view class='header_info'>
+            <image class='avater' src='{{userInfo.headimgurl}}'></image>
+            <view class='text'>
+                <text class='desc'>{{userInfo.nickname}}</text>
+                <text class='title'>会员等级:{{userInfo.level}}</text>
+            </view>
+        </view>
+    </view>
+    <!--余额  -->
+    <view class='zhen'>
+        <image src='../../images/title.png' mode='asprectFit'
+            class='caozhen'
+        ></image>
+        <text>优惠卡券</text>
+    </view>
+    <!--tab切换部分  -->
+    <view class='tab'>
+        <view class="tab-item {{currentIndex==0?'active':''}}" bindtap='switchTab' data-index='0'>未使用</view>
+        <view class="tab-item {{currentIndex==1?'active':''}}" bindtap='switchTab' data-index='1'>已使用</view>
+    </view>
+    <swiper bindchange='switchTab' 
+            current='{{currentIndex}}' 
+            style="height:100%;"
+            >
+        <!--未使用 -->
+        <swiper-item class='swiper-item'>
+            <view>
+                <block wx:for='{{unuse_coupon}}' wx:key='index'>
+                    <view class='card-item'>
+                        <image src='../../images/juan.png' class='card-bg' mode='scaleToFill'></image>
+                        <view class='box'>
+                            <!--文字或者图片  -->
+                            <view class='box-left'>
+                                <block wx:if='{{item.type==1}}'>
+                                    <view class='num'>
+                                        <text>￥</text>
+                                        <text>{{item.amount}}</text>
+                                    </view>
+                                </block>
+                                <block wx:else>
+                                    <image class='smile_icon' src='../../images/01/2.png'></image> 
+                                </block>
+                            </view>
+                            <!--文字描述  -->
+                            <view class='box-right'>
+                                <block wx:if='{{item.type==1}}'>
+                                    <text>元优惠券</text>
+                                    <text>{{item.term}}</text>
+                                    <text>{{item.condition}}</text>
+                                </block>
+                                <block>
+                                    <text>笑脸卡</text>
+                                    <text>{{item.coupon_desc}}</text>
+                                </block>
+                            </view>
+                        </view>
+                    </view>   
+                </block>
+            </view>
+        </swiper-item>
+        <!--已使用  -->
+        <swiper-item class='swiper-item'>
+            <view>
+                <block wx:for='{{used_coupon}}' wx:key='*this'>
+                    <view class='card-item'>
+                        <image src='../../images/juan.png' class='card-bg' mode='scaleToFill'></image>
+                        <view class='box'>
+                            <!--文字或者图片  -->
+                            <view class='box-left'>
+                                <block wx:if='{{item.type==1}}'>
+                                    <view class='num'>
+                                        <text>￥</text>
+                                        <text>{{item.amount}}</text>
+                                    </view>
+                                </block>
+                                <block wx:else>
+                                    <image class='smile_icon' src='../../images/01/2.png'></image> 
+                                </block>
+                            </view>
+                            <!--文字描述  -->
+                            <view class='box-right'>
+                                <block wx:if='{{item.type==1}}'>
+                                    <text>元优惠券</text>
+                                    <text>{{item.term}}</text>
+                                    <text>{{item.condition}}</text>
+                                </block>
+                                <block>
+                                    <text>笑脸卡</text>
+                                    <text>{{item.coupon_desc}}</text>
+                                </block>
+                            </view>
+                        </view>
+                    </view>   
+                </block>
+            </view>
+        </swiper-item>
+    </swiper>
+    <zan-toptips
+        content="{{tips}}"
+        duration="{{ duration }}"
+        is-show="{{ $zanui.toptips.show }}"
+    />
+</view>

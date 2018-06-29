@@ -1,0 +1,38 @@
+<!--pages/discount/discount.wxml-->
+<view>
+    <view class='header'>
+        <!--头部的背景图  -->
+        <image class='header_bg' 
+            src='../../images/bg@2x.png' mode='scaleToFill'></image>
+        <view class='header_info'>
+            <image class='avater' src='{{userInfo.headimgurl}}'></image>
+            <view class='text'>
+                <text class='desc'>{{userInfo.nickname}}</text>
+                <text class='title'>会员等级{{userInfo.level}}</text>
+            </view>
+        </view>
+    </view>
+    <!--  -->
+    <view class='zhen'>
+        <image src='../../images/title.png' mode='asprectFit'
+            class='caozhen'
+        ></image>
+        <text>等级折扣</text>
+    </view>
+    <!--  -->
+    <image src='../../images/discount_cart.png' class='discount_cart'></image>
+    <!--  -->
+    <view style='text-align:center'>
+        <text class='zhekou'>等级折扣</text>
+        <view class='jizhe'>{{result.user_discount}}</view>
+    </view>
+    <view class='btn'>
+        <navigator url='/pages/level/level' hover-class='none'>
+            <button>查看会员特权</button>
+        </navigator>
+    </view>
+    <view class='rule'>
+        <text>折扣规则:</text>
+        <view wx:for="{{result.discount_rule}}" wx:key='*this'>{{item}}</view>
+    </view>
+</view>

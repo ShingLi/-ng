@@ -1,0 +1,58 @@
+<!--pages/integral/integral.wxml-->
+<view>
+    <view class='header'>
+        <!--头部的背景图  -->
+        <image class='header_bg' 
+            src='../../images/bg@2x.png' mode='scaleToFill'></image>
+        <view class='header_info'>
+            <image class='avater' src='{{userInfo.avatarUrl}}'></image>
+            <view class='text'>
+                <text class='desc'>{{userInfo.nickname}}</text>
+                <text class='title'>会员等级:lv{{userInfo.level_type}}</text>
+            </view>
+        </view>
+    </view>
+    <!--积分  -->
+    <view class='zhen'>
+        <image src='../../images/title.png' mode='asprectFit'
+            class='caozhen'
+        ></image>
+        <text>积分</text>
+    </view>
+    <!-- 礼物部分 -->
+    <image class='liwu' src='../../images/liwu.png'></image>
+    <!--我的积分  -->
+    <view class='integral_wrap'>
+        <view class='my_integral'>我的积分</view>
+        <navigator url='/pages/integral_detail/integral_detail' hover-class="none">
+            <view class='show_btn'>
+                <button>查看积分明细</button>
+            </view>
+        </navigator>
+    </view>
+    <!--积分列表  -->
+    <view class='integral_list_wrap'>
+        <view class='more'>
+            <view class='line'></view>
+            <view class='text'>积分兑换</view>
+            <view class='line'></view>
+        </view>
+        <!--循坏  -->
+        <view class='integral_list'>
+            <block wx:for='{{integral_list}}' wx:key='item.id'>
+                <view class='list-item'>
+                    <view class='item'>
+                        <image src='../../images/hb.png' class='hb'></image>
+                        <text class='rmb'>￥{{item.reduction}}</text>
+                    </view>
+                    <text class='mk'>无门槛使用</text>
+                    <text class='num'>{{item.need_jf}}积分</text>
+                    <view class='btn_d' bindtap='exchange' data-id='{{item.id}}'>兑换</view>
+                </view>
+            </block>
+            
+        </view>
+        <!--  -->
+    </view>
+
+</view>

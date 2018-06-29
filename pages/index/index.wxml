@@ -1,0 +1,126 @@
+<!--index.wxml-->
+<view class='indexwrap'>
+    <view class='header'>
+        <!--头部的背景图  -->
+        <image class='header_bg' 
+            src='../../images/bg@2x.png' mode='scaleToFill'></image>
+        <view class='header_info'>
+            <image class='avater' src='{{userInfo.headimgurl}}'></image>
+            <view class='text'>
+                <text class='desc'>{{userInfo.nickname}}</text>
+                <text class='title'>会员等级:{{userInfo.level}}</text>
+            </view>
+        </view>
+    </view>
+    <!--签到和笑脸卡  -->
+    <view class='activity'>
+        <!--上  -->
+        <view class='top'>  
+            <!--余额  -->
+            <view class='yue' bindtap='balance'>
+                <view class="{{wallet_len?'font_small':''}}">￥{{userInfo.balance}}</view>
+                <text>余额</text>
+            </view>
+            <!-- 积分 -->
+            <view class='jf' bindtap='score'>
+                <view>{{userInfo.integral}}</view>
+                <text>积分</text>
+            </view> 
+        </view>
+        <!--下  -->
+        <view class='bottom'>
+            <view bindtap='href'>
+                <image src='../../images/01/1.png'></image>
+                <text>签到</text>
+            </view>
+            <view bindtap='smile'>
+                <image src='../../images/01/2.png'></image>
+                <text>笑脸卡</text>
+            </view>
+        </view>
+    </view>
+    <!--8宫格  -->
+    <view class='grid'>
+        <!-- 1 -->
+        <navigator url='/pages/level/level' hover-class="none">
+            <view class='grid_item one'>
+                <image src='../../images/level.png'></image>
+                <text class='lv'>{{userInfo.level}}</text>
+                <text class='level'>会员等级</text>
+            </view>
+        </navigator>
+        <!-- 2 -->
+        <navigator url='/pages/discount/discount' hover-class="none">
+            <view class='grid_item two'>
+                <image src='../../images/discount.png'></image>
+                <text class='lv'>全场{{userInfo.level_discount}}折</text>
+                <text class='level'>等级折扣</text>
+            </view>
+        </navigator>
+        <!-- 3 -->
+        <navigator url='/pages/card/card' hover-class="none">
+            <view class='grid_item three'>
+                <image src='../../images/card.png'></image>
+                <text class='lv'>{{userInfo.coupon_number}}张</text>
+                <text class='level'>优惠卡券</text>
+            </view>
+        </navigator>
+        <!-- 4 -->
+        <navigator url='/pages/giving/giving' hover-class="none">
+            <view class='grid_item four'>
+                <image src='../../images/zhen.png'></image>
+                <text class='level' style='margin-top:15rpx;'>充值赠送</text>
+            </view> 
+        </navigator>
+        <!-- 5 -->
+        <!-- <view class='grid_item five'>
+            <image src='../../images/jl.png'></image>
+            <text class='level' style='margin-top:15rpx;'>推广奖励</text>
+        </view> -->
+        <!-- 6 -->
+        <navigator url='/pages/message/message' hover-class="none">
+            <view class='grid_item six'>
+                <image src='../../images/bell.png' style='width:58rpx;'></image>
+                <!-- <text class='lv'></text> -->
+                <text class='level' style='margin-top:15rpx;'>消息中心</text>
+                <!--角标  -->
+                <view class='badge' wx:if='{{userInfo.message_number}}'>{{userInfo.message_number}}</view>
+            </view>
+        </navigator>
+        <!-- 7 -->
+        <navigator url='/pages/payment/payment' hover-class="none">
+            <view class='grid_item seven'>
+                <image src='../../images/bill.png'></image>
+                <!-- <text class='lv'></text> -->
+                <text class='level' style='margin-top:15rpx;'>付款账单</text>
+            </view>
+        </navigator>
+        <!-- 8 -->
+        <navigator url='/pages/bill/bill' hover-class="none">
+            <view class='grid_item seven'>
+                <image src='../../images/bill.png'></image>
+                <!-- <text class='lv'></text> -->
+                <text class='level' style='margin-top:15rpx;'>账单详情</text>
+            </view>
+        </navigator>
+        <!-- 8 -->
+        <navigator url='/pages/userCenter/userCenter' hover-class="none">
+            <view class='grid_item eight'>
+                <image src='../../images/jl.png'></image>
+                <!-- <text class='lv'></text> -->
+                <text class='level' style='margin-top:15rpx;'>个人中心</text>
+            </view>
+        </navigator>
+        <!-- 占位容器 -->
+        <view class='grid_item'></view>
+    </view>
+   <!--弹框显示授权小程序  -->
+   <view class='authorize-contianer' wx:if="{{hasUserInfo}}">
+        <image class="authorize-icon" src="../../images/authorize.png"></image>
+        <view class='auth-item'>欢乐牧场申请</view>
+        <view class='auth-item'>获取你的公开信息（头像、昵称等)</view>
+        <view class='btn-authorize'>
+            <button type='primary' open-type='getUserInfo' lang='zh_CN' bindgetuserinfo='getuserinfo'>授权</button>
+        </view>
+   </view>
+</view>

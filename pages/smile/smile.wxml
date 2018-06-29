@@ -1,0 +1,43 @@
+<!--pages/smile/smile.wxml-->
+<view>
+    <view class='header'>
+        <!--头部的背景图  -->
+        <image class='header_bg' 
+            src='../../images/bg@2x.png' mode='scaleToFill'></image>
+        <view class='header_info'>
+            <image class='avater' src='{{userInfo.avatarUrl}}'></image>
+            <view class='text'>
+                <text class='desc'>{{userInfo.nickname}}</text>
+                <text class='title'>会员等级:lv{{userInfo.level_type}}</text>
+            </view>
+        </view>
+    </view>
+    <!--  -->
+    <view class='zhen'>
+        <image src='../../images/title.png' mode='asprectFit'
+            class='caozhen'
+        ></image>
+        <text>笑脸卡</text>
+    </view>
+    <view class='smile_wrap'>
+        <!--3张背景图  -->
+        <image class='smile_bg' src='../../images/smile.png' wx:if='{{showCode===0}}'></image>
+        <image class='smile_bg' src='../../images/smile_g.png' wx:if='{{showCode===1}}'></image>
+        <image class='smile_bg' src='../../images/smile_gg.png' wx:if='{{showCode===2}}'></image>
+        <!--内容  -->
+        <view class='box'>
+            <!--笑脸  -->
+            <!--遍历的区域  -->
+            <view class='smile_item' wx:for='{{smile}}'>
+                <image class='smile_icon {{smile_icon[1]}}'></image>
+                <text class='time'>2018-05-18</text>
+                <view class='address'>苏宁店</view>
+            </view>
+            <!--  -->
+            <view class='bottom'>
+                <text class='describle'>集满十张笑脸卡可兑换一次免费用餐机会</text>
+                <button class='duihuan {{btn_color[1]}}' bindtap='exchange'>兑换</button>
+            </view>
+        </view>
+    </view>
+</view>

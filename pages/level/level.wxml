@@ -1,0 +1,72 @@
+<!--pages/level/level.wxml-->
+<view>
+     <view class='header'>
+        <!--头部的背景图  -->
+        <image class='header_bg' 
+            src='../../images/bg@2x.png' mode='scaleToFill'></image>
+        <view class='header_info'>
+            <image class='avater' src='{{userInfo.headimgurl}}'></image>
+            <view class='text'>
+                <text class='desc'>{{userInfo.nickname}}</text>
+                <text class='title'>会员等级:{{userInfo.level}}</text>
+            </view>
+        </view>
+    </view>
+    <!--  -->
+    <view class='zhen'>
+        <image src='../../images/title.png' mode='asprectFit'
+            class='caozhen'
+        ></image>
+        <text>会员等级</text>
+    </view>
+    <view class='badge_wrap'>
+        <!--徽章每一个等级对应一个徽章  -->
+        <image src='{{pageInfo.level_img}}' class='medals'></image>
+        
+        <!--文字  -->
+        <view class='text'>
+            <text class='title1' bindtap='showModal'>积分值说明></text>
+            <view class='num'>
+                <text class='title_num'>累积积分</text>
+                {{pageInfo.integral}}
+            </view>
+            <progress percent='{{pageInfo.up_percent}}' stroke-width='3'></progress>
+            <view class='level'>{{pageInfo.level}}</view>
+            <text class='hehe'>还差{{pageInfo.cha_integral}}积分升级至{{pageInfo.next_level_name}}会员</text>
+        </view>
+    </view>
+    <!--进度  -->
+    <view>
+        <image src='../../images/group.png' class='group'></image>
+    </view>
+    <!--特权专区  -->
+    <view class='privilege'>
+        <view class='head'>
+            <view class='line'></view>
+            <view class='textz'>{{pageInfo.level_privilege.title}}</view>
+            <view class='line'></view>
+        </view>
+        <view class='zzz'>
+            <view>
+                <view class='quan'>等级折扣</view>
+                <text class='act'>{{pageInfo.level_privilege.discounts_desc}}</text>
+            </view>
+            <view>
+                 <view class='quan'>徽章特权</view>
+                <text class='act'>{{pageInfo.level_privilege.badge_desc}}</text>
+            </view>
+            <view>
+                 <view class='quan'>积分特权</view>
+                <text class='act'>{{pageInfo.level_privilege.integral_desc}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<!--modal  -->
+<view class='modal' wx:if='{{isShow}}' bindtap='closeModal'>
+    <view class='modal_body' catchtap='stop'>
+        <image src='../../images/close.png' class='close' bindtap='closeModal'></image>
+        <view class='describle'>积分值说明</view>
+        <text wx:for='{{pageInfo.integral_desc}}'>{{item}}</text>    
+    </view>
+</view>

@@ -1,0 +1,39 @@
+<!--pages/recharge/recharge.wxml-->
+<view>
+    <view class='header'>
+        <!--头部的背景图  -->
+        <image class='header_bg' 
+            src='../../images/bg@2x.png' mode='scaleToFill'></image>
+        <view class='header_info'>
+            <image class='avater' src='{{userInfo.avatarUrl}}'></image>
+            <view class='text'>
+                <text class='desc'>{{userInfo.nickname}}</text>
+                <text class='title'>会员等级:lv{{userInfo.level_type}}</text>
+            </view>
+        </view>
+    </view>
+    <!--余额  -->
+    <view class='zhen'>
+        <image src='../../images/title.png' mode='aspectFit'
+            class='caozhen'
+        ></image>
+        <text>余额</text>
+    </view>
+    <!--卡包  -->
+    <image src='card' src='../../images/cardpackage.png' 
+        class='cardpackage' mode='aspectFit'></image>
+    <!--充值区域  -->
+    <view class='recharge'>
+        <text>我的余额</text>
+        <view>{{userInfo.wallet}}</view>
+        <navigator url='/pages/recharge_detail/detail'>
+            <button class='append'>充值</button>
+        </navigator>
+        <navigator url='/pages/reflect_detail/detail'>
+            <button>提现</button>
+        </navigator>
+    </view>
+    <navigator url='/pages/bill/bill' hover-class="none">
+        <text class='ck'>查看账单明细></text>
+    </navigator>
+</view>

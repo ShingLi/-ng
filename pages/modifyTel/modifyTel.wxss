@@ -1,0 +1,52 @@
+/* pages/modifyTel/modifyTel.wxss */
+.top{
+    padding-top: 60rpx;
+    text-align: center;
+}
+.lock{
+    margin: 20rpx 0 60rpx 0;
+    width: 152rpx;
+    height: 160rpx;
+}
+.top view{
+    font-size: 30rpx;
+    color: rgb(153,153,153)
+}
+.cell{
+    display: flex;
+    align-items: center;
+    width: 680rpx;
+    height: 90rpx;
+    margin: auto;
+    justify-content: space-between
+}
+.border_t{
+    border-bottom: 1rpx solid rgb(153,153,153)
+}
+.code{
+    width: 180rpx;
+    height: 56rpx;
+    line-height: 56rpx;
+    color: rgb(255,255,255);
+    font-size: 24rpx;
+    border-radius: 40rpx;
+    margin-left: none;
+    margin-right: 10rpx;
+    background-color: rgb(255,64,64)
+}
+.cell input{
+    font-size: 25rpx;
+    color: rgb(153,153,153);
+    padding-left: 30rpx;
+    flex:1
+}
+.succ{
+    width: 680rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-top: 40rpx;
+    border-radius: 38rpx;
+    font-size: 30rpx;
+    color: #fff;
+    background-color: rgb(255,64,64)
+}
