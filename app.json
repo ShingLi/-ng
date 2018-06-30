@@ -1,16 +1,20 @@
 {
     "pages":[
-        
-        "pages/modifyTel/modifyTel",
-        "pages/userCenter/userCenter",
+
+        "pages/payment/payment",
         "pages/index/index",
+        "pages/payMobieCode/payMobileCode",
+        "pages/payPwd/payPwd",
         "pages/bill/bill",
+        "pages/resetMobile/resetMobile",
+        "pages/userCenter/userCenter",
+        "pages/modifyTel/modifyTel",
         "pages/card/card",
         "pages/discount/discount",
         "pages/level/level",
         "pages/sign/sign",
         "pages/recharge_detail/detail",
-        "pages/payment/payment",
+        
         "pages/reflect_detail/detail",
         "pages/message/message",
         "pages/giving/giving",
@@ -19,8 +23,6 @@
         "pages/push_detail/push_detail",
         "pages/integral/integral",
         "pages/recharge/recharge",
-        "pages/return/return",
-        "pages/reward/reward",
         "pages/reflect/reflect"
     ],
     "window":{

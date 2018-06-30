@@ -14,11 +14,11 @@ Page({
             if(res){
                 // 这里等待getUserInfo的返回值
                 // console.log(res)
-
-                this._indexInfo(res)
                 this.setData({
-                    hasUserInfo:false
+                    hasUserInfo: false
                 })
+                this._indexInfo(res)
+                
             }
         }).catch(err=>{
             if(err.authSetting){
@@ -31,6 +31,7 @@ Page({
     },
     // 首页信息
     _indexInfo(result){
+        console.log("获取信息")
         let session3rd = wx.getStorageSync('session3rd')
         var self = this
         if (session3rd){
@@ -63,7 +64,12 @@ Page({
             }).catch(err=>{
                 console.log(err)
             })
-        } 
+        }else{
+            console.log("没有session3rd")
+            this.setData({
+                hasUserInfo: true
+            })
+        }
     },
     // 重新登录
     Login(code, rawData, signature, encryptedData, iv){

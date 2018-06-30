@@ -3,6 +3,7 @@ const app = getApp()
 const url = app.baseUrl
 
 import util from '../../utils/index.js'
+// 判断是够
 Page({
     data:{
 
@@ -29,6 +30,25 @@ Page({
             self.setData({
                 userCenterInfo
             })
+        })
+    },
+    // 重置手机手机好
+    resetMobile(){
+        console.log("重置执行开始")
+        wx.navigateTo({
+            url: '/pages/resetMobile/resetMobile',
+        })
+    },
+    // 绑定手机号
+    bindMobile(){
+        wx.navigateTo({
+            url: '/pages/modifyTel/modifyTel',
+        })
+    },
+    // 设置绑定
+    setBind(){
+        wx.navigateTo({
+            url: '/pages/payMobieCode/payMobileCode',
         })
     }
 })

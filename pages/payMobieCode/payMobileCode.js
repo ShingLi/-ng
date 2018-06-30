@@ -1,36 +1,38 @@
-// pages/modifyTel/modifyTel.js
+
 const app = getApp()
 const url = app.baseUrl
 const Toast = require('../../lib/dist/toast/toast')
 var time = 60
 const regTel = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/
+
+
 import util from '../../utils/index.js'
 Page({
-    data:{
-        codeStatus:'获取验证码',
-        telVal:'',
-        get_code_status:true,//是否能够点击获得验证码
+    data: {
+        codeStatus: '获取验证码',
+        telVal: '',
+        get_code_status: true,//是否能够点击获得验证码
     },
-    input_val(e){
+    input_val(e) {
         // 输入框获得手机号
         let currentVal = e.detail.value
         this.setData({
             telVal: currentVal
         })
     },
-    getCode(){
-        if(!this.data.get_code_status){
+    getCode() {
+        if (!this.data.get_code_status) {
             wx.showToast({
                 title: '正在获取',
                 icon: 'loading',
                 duration: 1000
             })
-        }else{
+        } else {
             let code = true
-           this._regTel(code)
+            this._regTel(code)
         }
     },
-    _regTel(val){
+    _regTel(val) {
         // 验证手机号
         let currentTel = this.data.telVal
         if (currentTel.length == 11) {
@@ -44,7 +46,7 @@ Page({
                 })
             } else {
                 // 一切正常
-                if(val){
+                if (val) {
                     console.log(val)
                     this._getCode()
                 }
@@ -58,28 +60,27 @@ Page({
             })
         }
     },
-    _getCode(){
+    _getCode() {
         var self = this
         const session3rd = wx.getStorageSync('session3rd')
-        let mobile = this.data.telVal
+
         util.request({
-            url: `${url}/api/user/bind_mobile_code`,
-            data:{
-                session3rd,
-                mobile
+            url: `${url}/api/user/setting_pay_pwd_code`,
+            data: {
+                session3rd
             }
-        }).then(res=>{
-            let { code } =res 
-            switch (code){
+        }).then(res => {
+            let { code } = res
+            switch (code) {
                 case 201:
                     Toast({
-                        message:'验证码发送成功',
-                        type:'success',
+                        message: '验证码发送成功',
+                        type: 'success',
                         timeout: 1500,
                         selector: '#zan-toast-test'
                     })
                     self._timer()//倒计时
-                break;
+                    break;
                 case 122:
                     Toast({
                         message: '验证码发送失败',
@@ -87,22 +88,22 @@ Page({
                         timeout: 1500,
                         selector: '#zan-toast-test'
                     })
-                break;
+                    break;
             }
         })
     },
-    _timer(){
+    _timer() {
         var self = this
-        var timer  = setInterval(()=>{
-            time = time-1
-           // console.log(time)
-            if(time!=0){
-                
+        var timer = setInterval(() => {
+            time = time - 1
+            // console.log(time)
+            if (time != 0) {
+
                 self.setData({
-                    codeStatus:`${time-1} S`,
+                    codeStatus: `${time - 1} S`,
                     get_code_status: false
                 })
-            }else {
+            } else {
                 clearInterval(timer)
                 time = 60
                 self.setData({
@@ -110,25 +111,24 @@ Page({
                     get_code_status: true
                 })
             }
-        },1000)
+        }, 1000)
     },
     // 验证验证码
-    isCode(mobile,code){
-        var self = this 
+    isCode(code) {
+        var self = this
         const session3rd = wx.getStorageSync('session3rd')
         util.request({
-            url: `${url}/api/user/bind_mobile`,
-            method:'POST',
+            url: `${url}/api/user/verify_pay_pwd_code`,
+            method: 'POST',
             // header:{
             //     'Content-Type':'application/x-www-form-urlencoded'
             // },
-            data:{
-                mobile,
+            data: {
                 code,
                 session3rd
             }
-        }).then(res=>{
-            let  status  = res.code
+        }).then(res => {
+            let status = res.code
             switch (status) {
                 case 123:
                     Toast({
@@ -148,37 +148,34 @@ Page({
                     break;
                 case 201:
                     wx.showToast({
-                        title: '绑定成功',
-                        duration:1500
+                        title: '验证成功',
+                        duration: 1500
                     })
-                    // 跳转到首页
-                    // 当前是否已经绑定过了，这个后台传值，有is_mobile  是1
-                    setTimeout(()=>{
-                        // wx.redirectTo({
-                        //     url: '/pages/index/index'
-                        // })
-                        wx.navigateBack({
-                            delta: 2
+                    
+                   
+                    setTimeout(() => {
+                        wx.navigateTo({
+                            url: '/pages/payPwd/payPwd'
                         })
-                    },1300)
-                break;
+                    }, 1000)
+                    break;
             }
         })
     },
     formSubmit(e) {
-       
-        let { tel,code} = e.detail.value
-        if(tel.length==''||code.length==''){
+
+        let { tel, code } = e.detail.value
+        if (tel.length == '' || code.length == '') {
             wx.showToast({
                 title: '不能为空',
-                icon:'loading',
-                duration:1500
+                icon: 'loading',
+                duration: 1500
             })
-            return 
+            return
         }
         let iscode = false
         this._regTel(iscode)
         // 验证验证码是否正确
-        this.isCode(tel,code)
+        this.isCode(code)
     },
 })

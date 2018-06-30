@@ -1,0 +1,42 @@
+<!--pages/payPwd/payPwd.wxml-->
+<view class='container'>
+    <view class='main'>
+        <form bindsubmit='formSubmit'>
+            <view class='group'>
+                <view>
+                    <image class='icon' src='../../images/paypwd/pwd.png'></image>
+                    <input placeholder='请输入6位数字密码' 
+                        type='number' maxlength='6' 
+                        name='pwd' 
+                        wx:if='{{flag1}}' bindinput='currentVal'
+                        value='{{val}}'
+                    ></input>
+                    <input placeholder='请输入6位数字密码' 
+                        type='password' 
+                        maxlength='6' 
+                        name='pwd' 
+                        wx:else
+                        value='{{val}}'
+                        bindinput='currentVal'
+                    ></input>
+                </view>
+                <image class='eye' src='{{flag1?open_eye:close_eye}}' bindtap='handle'></image>
+            </view>
+            <view class='group'>
+                <view>
+                    <image class='icon' src='../../images/paypwd/pwd.png'></image>
+                    <input placeholder='再次输入6位数字支付密码' type='number' maxlength='6' name='checkPwd' 
+                        wx:if='{{flag2}}' bindinput='z' value='{{val2}}'></input>
+                    <input placeholder='再次输入6位数字支付密码' type='password' 
+                    maxlength='6' name='checkPwd' wx:else bindinput='z' value='{{val2}}'></input>
+                    
+                </view>
+                <image class='eye' src='{{flag2?open_eye:close_eye}}' bindtap='handle2'></image>
+            </view>
+            <view>
+                <button class='succ' form-type='submit'>完成</button>
+            </view>
+        </form>
+    </view>
+</view>
+<zan-toast id="toast"></zan-toast>

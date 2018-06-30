@@ -1,5 +1,4 @@
 <!--pages/payment/payment.wxml-->
-
 <view>
     <view class='header'>
         <!--头部的背景图  -->
@@ -20,7 +19,7 @@
         ></image>
         <text>支付</text>
     </view>
-
+    
     <!--视图  -->
     <view class='swiperWrap'>
         <!--item  消费-->

@@ -11,6 +11,7 @@
     font-size: 0;
 }
 .tab-item{
+    
     font-size: 30rpx;
     width: 50%;
     height: 100%;
@@ -26,12 +27,14 @@
 }
 /*swiper  */
 .swiper{
-    min-height: 700rpx;
+    height: 100%;
+    /* min-height: 700rpx; */
 }
 .swiperWrap{
     margin: 15rpx 82rpx;
 }
 .item{
+    height: 428rpx;
     position: relative;
     padding:25rpx 40rpx 0 40rpx;
     margin-bottom: 20rpx;
