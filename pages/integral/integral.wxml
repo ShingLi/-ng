@@ -5,10 +5,10 @@
         <image class='header_bg' 
             src='../../images/bg@2x.png' mode='scaleToFill'></image>
         <view class='header_info'>
-            <image class='avater' src='{{userInfo.avatarUrl}}'></image>
+            <image class='avater' src='{{userInfo.headimgurl}}'></image>
             <view class='text'>
                 <text class='desc'>{{userInfo.nickname}}</text>
-                <text class='title'>会员等级:lv{{userInfo.level_type}}</text>
+                <text class='title'>会员等级:{{userInfo.level}}</text>
             </view>
         </view>
     </view>
@@ -31,7 +31,7 @@
         </navigator>
     </view>
     <!--积分列表  -->
-    <view class='integral_list_wrap'>
+    <view class='integral_list_wrap'wx:if="{{integral}}">
         <view class='more'>
             <view class='line'></view>
             <view class='text'>积分兑换</view>
@@ -39,15 +39,15 @@
         </view>
         <!--循坏  -->
         <view class='integral_list'>
-            <block wx:for='{{integral_list}}' wx:key='item.id'>
+            <block wx:for='{{integral.exchange_list}}' wx:key='item.eid'>
                 <view class='list-item'>
                     <view class='item'>
                         <image src='../../images/hb.png' class='hb'></image>
-                        <text class='rmb'>￥{{item.reduction}}</text>
+                        <text class='rmb'>￥{{item.amount}}</text>
                     </view>
-                    <text class='mk'>无门槛使用</text>
-                    <text class='num'>{{item.need_jf}}积分</text>
-                    <view class='btn_d' bindtap='exchange' data-id='{{item.id}}'>兑换</view>
+                    <text class='mk'>{{item.condition}}</text>
+                    <text class='num'>{{item.integral_number}}积分</text>
+                    <view class='btn_d' bindtap='exchange' data-id='{{item.eid}}'>兑换</view>
                 </view>
             </block>
             

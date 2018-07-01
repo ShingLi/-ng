@@ -75,6 +75,7 @@
     color: #fff;
 }
 .list-item{
+    /* text-align: center; */
     font-size: 0;
     margin-bottom: 20rpx;
 }
@@ -83,7 +84,7 @@
     display:block;
 }
 .mk{
-    font-size: 24rpx;
+    font-size: 18rpx;
     color: rgb(51,51,51)
 }
 .num{
@@ -94,7 +95,7 @@
 .btn_d{
     margin:10rpx auto 0 auto;
     width: 80rpx;
-    height: 28rpx;
+
     line-height: 28rpx;
     font-size: 24rpx;
     text-align: center;

@@ -1,8 +1,9 @@
 {
     "pages":[
-
+        "pages/integral/integral",
         "pages/payment/payment",
         "pages/index/index",
+        "pages/sign/sign",
         "pages/payMobieCode/payMobileCode",
         "pages/payPwd/payPwd",
         "pages/bill/bill",
@@ -12,16 +13,14 @@
         "pages/card/card",
         "pages/discount/discount",
         "pages/level/level",
-        "pages/sign/sign",
         "pages/recharge_detail/detail",
-        
         "pages/reflect_detail/detail",
         "pages/message/message",
         "pages/giving/giving",
         "pages/smile/smile",
         "pages/integral_detail/integral_detail",
         "pages/push_detail/push_detail",
-        "pages/integral/integral",
+        
         "pages/recharge/recharge",
         "pages/reflect/reflect"
     ],

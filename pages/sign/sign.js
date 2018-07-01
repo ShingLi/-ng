@@ -26,7 +26,7 @@ Page({
         var day = mydate.getDay();
         console.log(day)
         nbsp = 7 - ((date - day) % 7);
-        // console.log("nbsp" + nbsp);
+        //console.log("nbsp" + nbsp);
         
         if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
             monthDaySize = 31;

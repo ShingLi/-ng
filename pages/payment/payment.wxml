@@ -5,10 +5,10 @@
         <image class='header_bg' 
             src='../../images/bg@2x.png' mode='scaleToFill'></image>
         <view class='header_info'>
-            <image class='avater' src='{{userInfo.avatarUrl}}'></image>
+            <image class='avater' src='{{userInfo.headimgurl}}'></image>
             <view class='text'>
                 <text class='desc'>{{userInfo.nickname}}</text>
-                <text class='title'>会员等级:lv{{userInfo.level_type}}</text>
+                <text class='title'>会员等级:{{userInfo.level}}</text>
             </view>
         </view>
     </view>
@@ -23,45 +23,49 @@
     <!--视图  -->
     <view class='swiperWrap'>
         <!--item  消费-->
-        <view class='item' wx:for='{{consumeList}}' wx:key="item.id">
-            <image class='item_bg' src='../../images/bill_item_bg.png' mode='aspectFit'></image>
-            <!--内容区  -->
-            <view class='name'>欢乐牧场</view>
-            <view class='address'>
-                <text>门店:{{item.store_name}}</text>
-                <text>时间：{{item.time}}</text>
-            </view>
-            <view class='detail'>
-                <view class='top'>
-                    <text>消费</text>
-                    <text>数量</text>
-                    <text>金额</text>
+        <block wx:for='{{order_info}}'>
+            <view class='item'>
+                <image class='item_bg' src='../../images/bill_item_bg.png' mode='aspectFit'></image>
+                <!--内容区  -->
+                <view class='name'>欢乐牧场</view>
+                <view class='address'>
+                    <text>门店:{{item.store_name}}</text>
+                    <text>时间：{{item.time}}</text>
                 </view>
-                <view class='middle' wx:for='{{item.items}}' wx:for-item="current" wx:key='current.id'>
-                    <text>{{current.name}}</text>
-                    <text>X{{current.number}}</text>
-                    <text>￥{{current.money}}</text>
+                <view class='detail'>
+                    <view class='top'>
+                        <text>消费</text>
+                        <text>数量</text>
+                        <text>金额</text>
+                    </view>
+                    <view class='middle' wx:for='{{item.items}}' wx:for-item="current" wx:key='current.id'>
+                        <text>{{current.name}}</text>
+                        <text>X{{current.number}}</text>
+                        <text>￥{{current.money}}</text>
+                    </view>
+                            
                 </view>
-                        
-            </view>
-            <view class='money'>
-                <text>余额: ￥2160.00</text> 
-            </view>
-            <view class='act'>
-                <view>光盘</view>
-                <view>
-                    <image src='../../images/01/smile.png'></image>
-                    获得笑脸卡+1
+                <view class='money'>
+                    <text>余额: ￥2160.00</text> 
+                </view>
+                <view class='act'>
+                    <view>光盘</view>
+                    <view>
+                        <image src='../../images/01/smile.png'></image>
+                        获得笑脸卡+1
+                    </view>
                 </view>
             </view>
-        </view>
+        </block>
     </view>
     <view class='pay'>
         <button bindtap='pay'>确认支付</button>
     </view>
     <!--没有数据时显示  -->
-     <view class='noResult' >
-            抱歉，暂无数据 :(
-    </view> 
+    <zan-toptips
+        content="暂时没有数据！"
+        duration="{{ duration }}"
+        is-show="{{ $zanui.toptips.show }}"
+    />
 </view>
 
