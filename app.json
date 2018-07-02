@@ -1,8 +1,9 @@
 {
     "pages":[
 
-        
+        "pages/smile/smile",
         "pages/index/index",
+        "pages/push_detail/push_detail",
         "pages/reflect_detail/detail",
         "pages/recharge_detail/detail",
         "pages/payment/payment",
@@ -19,10 +20,10 @@
         "pages/recharge/recharge",
         "pages/message/message",
         "pages/giving/giving",
-        "pages/smile/smile",
+        
         "pages/integral_detail/integral_detail",
         "pages/integral/integral",
-        "pages/push_detail/push_detail",
+        
         "pages/reflect/reflect"
     ],
     "window":{

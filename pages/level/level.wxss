@@ -41,7 +41,7 @@ progress{
 }
 .hehe{
     margin-top: 15rpx;
-    font-size: 24rpx;
+    font-size: 20rpx;
     color: rgb(254,254,254)
 }
 .group{
@@ -52,9 +52,9 @@ progress{
 }
 .privilege{
     width: 660rpx;
-    height: 268rpx;
     margin: 30rpx auto 30rpx auto;
     padding-top: 20rpx;
+    padding-bottom: 20rpx;
     border-radius: 5px;
     border: 1rpx solid rgba(204,204,204,.8)
 }

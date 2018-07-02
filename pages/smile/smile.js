@@ -1,5 +1,9 @@
 // pages/smile/smile.js
 const app = getApp()
+const url = app.baseUrl;
+const Dialog = require('../../lib/dist/dialog/dialog')
+
+import util from '../../utils/index.js'
 Page({
 
     data: {
@@ -9,20 +13,22 @@ Page({
         smile_icon: ['smile_y',"smile_x",'smile_g'],//笑脸的颜色数组
     },
     onLoad: function (options) {
-        app.getUserInfo(this)
+        let userInfo = app.globalData.userInfo
+        if (userInfo) {
+            this.setData({
+                userInfo
+            })
+        }
+        this._user_face_card()
     },
-    exchange(){
-        // 兑换
-        app.util.request({
-            url:'',
+    _user_face_card(){
+        util.request({
+            url: `${url}/api/user/user_face_card`,
             data:{
-                data:{
-                    m: 'zh_vip'
-                }
-            },
-            success:res=>{
-                
+                session3rd: wx.getStorageSync('session3rd')
             }
+        }).then(res=>{
+            console.log(res)
         })
     }
 })

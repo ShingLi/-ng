@@ -5,10 +5,10 @@
         <image class='header_bg' 
             src='../../images/bg@2x.png' mode='scaleToFill'></image>
         <view class='header_info'>
-            <image class='avater' src='{{userInfo.avatarUrl}}'></image>
+            <image class='avater' src='{{userInfo.headimgurl}}'></image>
             <view class='text'>
                 <text class='desc'>{{userInfo.nickname}}</text>
-                <text class='title'>会员等级:lv{{userInfo.level_type}}</text>
+                <text class='title'>会员等级:{{userInfo.level}}</text>
             </view>
         </view>
     </view>
@@ -22,16 +22,18 @@
     <!-- 积分详细 -->
     <view class='integral_list'>
     <!--循坏的列表  -->
-        <view class='item'>
-            <image class='time' src='../../images/time.png'></image>
-            <view class='time_list'>
-                <view>2018/05/28  11:21</view>
-                <view class='mb'>
-                    消费  ￥100  积分
-                    <text>+10</text>
+        <block wx:for='{{result}}' wx:key='*this'>
+            <view class='item'>
+                <image class='time' src='../../images/time.png'></image>
+                <view class='time_list'>
+                    <view>{{item.time}}</view>
+                    <view class='mb'>
+                        {{item.title}}
+                        <text>{{item.active}}</text>
+                    </view>
                 </view>
             </view>
-        </view>
+        </block>
     </view>
 </view>
 

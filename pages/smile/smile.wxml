@@ -5,10 +5,10 @@
         <image class='header_bg' 
             src='../../images/bg@2x.png' mode='scaleToFill'></image>
         <view class='header_info'>
-            <image class='avater' src='{{userInfo.avatarUrl}}'></image>
+            <image class='avater' src='{{userInfo.headimgurl}}'></image>
             <view class='text'>
                 <text class='desc'>{{userInfo.nickname}}</text>
-                <text class='title'>会员等级:lv{{userInfo.level_type}}</text>
+                <text class='title'>会员等级:{{userInfo.level}}</text>
             </view>
         </view>
     </view>
