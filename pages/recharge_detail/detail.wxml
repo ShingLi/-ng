@@ -5,10 +5,10 @@
         <image class='header_bg' 
             src='../../images/bg@2x.png' mode='scaleToFill'></image>
         <view class='header_info'>
-            <image class='avater' src='{{userInfo.avatarUrl}}'></image>
+            <image class='avater' src='{{userInfo.headimgurl}}'></image>
             <view class='text'>
                 <text class='desc'>{{userInfo.nickname}}</text>
-                <text class='title'>会员等级:lv{{userInfo.level_type}}</text>
+                <text class='title'>会员等级:{{userInfo.level}}</text>
             </view>
         </view>
     </view>
@@ -24,23 +24,47 @@
         <form bindsubmit='formSubmit'>
             <view class='form-container'>
                 <view class='form-control'>
-                    <label>微信昵称</label>
-                    <text>{{userInfo.nickname}}</text>
-                </view>
-                <view class='form-control'>
-                    <label>会员ID</label>
-                    <text>{{userInfo.id}}</text>
+                    <label>手机号</label>
+                    <text>{{userInfo.mobile}}</text>
                 </view>
                 <view class='form-control normal'>
                     <label>充值金额</label>
                     <view>
-                        <input placeholder='500元' type='number' name='number'></input>
+                        <input placeholder='' type='number' name='number' bindinput='inputChange'></input>
                     </view>
                 </view>
                 <view class='form-control'>
-                    <button form-type='submit'>充值</button>
+                    <button form-type='submit' type='primary' disabled='{{disabled}}'>下一步</button>
                 </view>
             </view>
         </form>
+    </view>
+</view>
+<!--dialog  -->
+<zan-dialog id="zan-dialog"></zan-dialog>
+<!--充值的支付密码验证  -->
+
+<view class='paypwdbg' wx:if="{{allinputF1}}">
+    <view class="payPass_box1">
+        <zan-icon type="close" class="qiueBtn" bindtap="hideBox"></zan-icon>
+        <view class="payPass_box_t">请输入您的支付密码</view>
+        <!--中间文字区域  -->
+        <view class='text'>充值</view>
+        <view class='z'>
+            <text class='icon'>￥</text>
+            <text class='money'>{{money}}</text>
+        </view>
+        <view class="payPass_box_m">
+            <view class="payPass_box_m_in" bindtap="focusInput">
+                <view class="payPass_box_m_in_in" wx:for="{{6}}" wx:key="{{index}}">
+                    <input data-index="{{index}}" 
+                        bindinput="allInputBtn" type="number" confirm-hold="true" 
+                        value="{{inputArr[index]}}" disabled="true" maxlength="1" password="{{true}}"/>
+                </view>
+            </view>
+            <view class="indexTopInput">
+                <input value="{{inputStr}}" focus="{{allinputF1}}" maxlength="6" type="number" bindinput="passInput"/>
+            </view>
+        </view>
     </view>
 </view>

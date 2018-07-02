@@ -203,7 +203,8 @@
     width: 320rpx;
 }
 .pay button{
-    margin-top: 100rpx;
+    /* margin-top: 100rpx; */
+    font-size: 30rpx;
     color: #fff;
     background-color: rgb(51,51,51)
 }

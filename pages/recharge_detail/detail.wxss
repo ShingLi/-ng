@@ -4,7 +4,7 @@
     min-height: 342rpx;
     margin:40rpx auto auto auto;
     padding:10rpx 25rpx 0 25rpx;
-    border: 1rpx solid rgba(153,153,153,.5);
+    border: 2rpx solid rgba(153,153,153,.5);
     border-radius: 8rpx;
 }
 .form-control{
@@ -18,26 +18,26 @@
     line-height: 60rpx;
 }
 .form-control label{
+    display: inline-block;
+    flex:0 0 185rpx;
     width: 185rpx;
     font-size: 24rpx;
     color: rgb(153,153,153)
 }
+
 .form-control:nth-child(2){
-    height: 58rpx;
-    line-height: 58rpx;
-}
-.form-control:nth-child(3){
     height: 118rpx;  
 }
-.form-control:nth-child(4){
+.form-control:nth-child(3){
+    margin-top: 30rpx;
     height: 100rpx;
     border-bottom: none;
 }
-.form-control:nth-child(4) button{
-    width: 280rpx;
+.form-control:nth-child(3) button{
+    width: 350rpx;
     height: 60rpx;
     line-height: 60rpx;
-    background-color: rgb(51,51,51);
+    /* background-color: rgb(51,51,51); */
     color: #FFF;
 }
 .form-control input{
@@ -58,3 +58,109 @@
     height: 70rpx;
     
 }
+
+.zan-dialog__content{
+    min-height: 0rpx !important
+}
+.zan-dialog--container{
+    width: 60vw !important;
+    border-radius: 22px !important;
+}
+/*支付6位支付密码  */
+.payPass_box1{
+    position: absolute;
+	left: 50%;
+	top: 30%;
+	width: 535rpx;
+	text-align: center;
+	margin-top: 40rpx;
+    padding-top: 15rpx;
+    padding-bottom: 50rpx;
+	transform: translate(-50%,-50%);
+    font-size: 26rpx;
+	color: #333;
+	border: 2rpx #d1d1d1 solid;
+	background: #fff;
+    border-radius: 30rpx;
+}
+.payPass_box_t{
+    font-size: 30rpx;
+    
+}
+.qiueBtn{
+    position: absolute;
+    left: 5%;
+    top:12rpx;
+	color: #999;
+    font-size: 20px;
+}
+.payPass_box_m{
+	margin-top: 15rpx;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+.payPass_box_m_in{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	z-index: 10;
+}
+.payPass_box_m_in_in{
+	width: 60rpx;
+	height: 60rpx;
+	border:1px #bfbfbf solid;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right:8rpx; 
+}
+.indexTopInput{
+	position: absolute;
+	height: 100%;
+	background: #000;
+	opacity: 0.5;
+	z-index: 2;
+	left: 0rpx;
+	background: red;
+	left: -150%;
+}
+.indexTopInput input{
+	width: 100%;
+	height: 100%;
+}
+
+.paypwdbg{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    background-color: rgba(0,0,0,.5);
+    z-index: 9;
+}
+.head{
+    display: flex;
+    align-items: center;
+}
+.text{
+    margin-top: 30rpx;
+}
+.z{
+    display: flex;
+    justify-content: center;
+    margin-top: 20rpx;
+}
+.icon{
+    padding-top:10rpx;
+    font-size:26rpx;
+    color: #000;
+}
+.money{
+    font-size: 45rpx;
+    color: #000;
+}
+

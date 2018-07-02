@@ -24,7 +24,7 @@
     line-height: 68rpx;
 }
 .append{
-    margin:60rpx 0 28rpx 0;
+    margin:35rpx 0 28rpx 0;
     background-color: rgb(51,51,51);
     color: #fff;
 }

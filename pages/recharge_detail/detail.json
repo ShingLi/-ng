@@ -1,1 +1,6 @@
-{}
+{
+    "usingComponents": {
+        "zan-dialog": "../../lib/dist/dialog/index",
+        "zan-icon": "../../lib/dist/icon/index"
+    }
+}

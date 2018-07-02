@@ -1,8 +1,11 @@
 {
     "pages":[
-        "pages/integral/integral",
-        "pages/payment/payment",
+
+        
         "pages/index/index",
+        "pages/reflect_detail/detail",
+        "pages/recharge_detail/detail",
+        "pages/payment/payment",
         "pages/sign/sign",
         "pages/payMobieCode/payMobileCode",
         "pages/payPwd/payPwd",
@@ -13,15 +16,13 @@
         "pages/card/card",
         "pages/discount/discount",
         "pages/level/level",
-        "pages/recharge_detail/detail",
-        "pages/reflect_detail/detail",
+        "pages/recharge/recharge",
         "pages/message/message",
         "pages/giving/giving",
         "pages/smile/smile",
         "pages/integral_detail/integral_detail",
+        "pages/integral/integral",
         "pages/push_detail/push_detail",
-        
-        "pages/recharge/recharge",
         "pages/reflect/reflect"
     ],
     "window":{

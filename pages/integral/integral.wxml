@@ -24,6 +24,7 @@
     <!--我的积分  -->
     <view class='integral_wrap'>
         <view class='my_integral'>我的积分</view>
+        <view>{{integral.user_integral}}</view>
         <navigator url='/pages/integral_detail/integral_detail' hover-class="none">
             <view class='show_btn'>
                 <button>查看积分明细</button>

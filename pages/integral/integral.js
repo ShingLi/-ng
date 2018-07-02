@@ -44,18 +44,37 @@ Page({
             console.log(res)
             let { code } = res
             code = parseInt(code)
-            if(code==201){
-                wx.showToast({
-                    title: '兑换成功',
-                    duration:1200
-                })
-            }else{
-                wx.showToast({
-                    title: '兑换失败',
-                    icon:'loading',
-                    duration: 1200
-                })
+            switch (code){
+                case 201:
+                    wx.showToast({
+                        title: '兑换成功',
+                        duration: 1200
+                    })
+                break;
+                case 121:
+                    wx.showToast({
+                        title: '无效的优惠券',
+                        icon:'loading',
+                        duration: 1200
+                    }) 
+                break;
+                case 123:
+                    wx.showToast({
+                        title: '积分不足',
+                        icon: 'loading',
+                        duration: 1200
+                    }) 
+                break;
+                case 124:
+                    wx.showToast({
+                        title: '兑换失败',
+                        icon: 'loading',
+                        duration: 1200
+                    }) 
+                break;
+
             }
+            
         })
     }
 })

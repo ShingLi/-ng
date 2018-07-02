@@ -1,6 +1,6 @@
 /* pages/integral_detail/integral_detail.wxss */
 .integral_list{
-    margin: 52rpx 154rpx 20rpx 154rpx;
+    margin: 52rpx 100rpx 20rpx 100rpx;
 }
 .item{
     display: flex;

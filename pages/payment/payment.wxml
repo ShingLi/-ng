@@ -23,14 +23,14 @@
     <!--视图  -->
     <view class='swiperWrap'>
         <!--item  消费-->
-        <block wx:for='{{order_info}}'>
+        <block>
             <view class='item'>
                 <image class='item_bg' src='../../images/bill_item_bg.png' mode='aspectFit'></image>
                 <!--内容区  -->
                 <view class='name'>欢乐牧场</view>
                 <view class='address'>
-                    <text>门店:{{item.store_name}}</text>
-                    <text>时间：{{item.time}}</text>
+                    <text>门店:{{result.order_info.store_name}}</text>
+                    <text>时间：{{result.order_info.order_time}}</text>
                 </view>
                 <view class='detail'>
                     <view class='top'>
@@ -38,34 +38,50 @@
                         <text>数量</text>
                         <text>金额</text>
                     </view>
-                    <view class='middle' wx:for='{{item.items}}' wx:for-item="current" wx:key='current.id'>
-                        <text>{{current.name}}</text>
-                        <text>X{{current.number}}</text>
-                        <text>￥{{current.money}}</text>
+                    <block wx:for='{{result.order_info.order_goods}}' wx:for-item="current"  wx:key='*this'>
+                        <view class='middle'>
+                        <text>{{current[0]}}</text>
+                        <text>X{{current[1]}}</text>
+                        <text>￥{{current[2]}}</text>
                     </view>
+                    </block>
                             
                 </view>
                 <view class='money'>
-                    <text>余额: ￥2160.00</text> 
+                    <text>余额: ￥{{result.order_info.user_account}}</text> 
                 </view>
                 <view class='act'>
                     <view>光盘</view>
                     <view>
                         <image src='../../images/01/smile.png'></image>
-                        获得笑脸卡+1
+                        获得笑脸卡+{{result.order_info.is_guangpan}}
                     </view>
                 </view>
             </view>
         </block>
     </view>
-    <view class='pay'>
-        <button bindtap='pay'>确认支付</button>
-    </view>
+    <form bindsubmit='formSubmit'>
+
+        <!-- <radio-group class="radio-group" bindchange="radioChange">
+            <label class="radio" wx:for="{{result.coupon_list}}">
+            <radio value="{{item.coupon_name}}"/>{{item.item.coupon_name}}
+            </label>
+        </radio-group> -->
+         <zan-select
+            items="{{items}}"
+            checkedValue="{{ checkedValue }}"
+            activeColor="{{ activeColor }}"
+            bind:change="handleSelectChange"
+        /> 
+
+        <view class='pay' wx:if='{{result}}'>
+            <button bindtap='pay' data-id='{{result.order_info.id}}'>确认并支付</button>
+        </view>
+    </form>
+    
     <!--没有数据时显示  -->
-    <zan-toptips
-        content="暂时没有数据！"
-        duration="{{ duration }}"
-        is-show="{{ $zanui.toptips.show }}"
-    />
+    <zan-toptips content="暂时没有支付账单数据！" duration="{{ duration }}" is-show="{{ $zanui.toptips.show }}"/>
+    <!-- dialog 框  -->
+    <zan-dialog id="zan-dialog"></zan-dialog>
 </view>
 
