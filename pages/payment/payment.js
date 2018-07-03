@@ -26,6 +26,10 @@ Page({
         }
         this._initGetPayInfo()
     },
+    onUnload(){
+        console.log('页面注销')
+        mark =true
+    },
     _initGetPayInfo() {
         // 初始化账单信息
         var self = this

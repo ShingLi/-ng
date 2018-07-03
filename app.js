@@ -1,12 +1,6 @@
 //app.js
 App({
     onLaunch: function () {
-        wx.login({
-            success: res => {
-                console.log(res)
-                this.globalData.code = res.code
-            }
-        })
         
         
     },
@@ -16,6 +10,7 @@ App({
             wx.getSetting({
                 success: res => {
                     console.log("进入getseting")
+                    console.log(res);
                     if (res.authSetting['scope.userInfo']) {
                         console.log("已经授权过直接调用getuserinfo")
                         // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框

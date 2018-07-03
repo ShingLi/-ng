@@ -137,7 +137,18 @@ Page({
                     'fail':function(err){
                         console.log(err)
                         if (err.errMsg =='requestPayment:fail cancel'){
-                            
+                            wx.showToast({
+                                title: '支付取消',
+                                icon:'loading'
+                            })
+                            // 支付取消后关闭支付
+                            self.setData({
+                                allinputF1: false,
+                                inputArr: [],
+                                inputStr: '',
+                                focusF: [],
+                                allinput: '',
+                            })
                         }
                     }
                 })
