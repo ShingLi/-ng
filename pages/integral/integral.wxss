@@ -21,7 +21,7 @@
     line-height: 60rpx;
     color: #fff;
     font-size: 36rpx;
-    background-color: rgb(51,51,51);
+    /* background-color: rgb(51,51,51); */
     border-radius: 30rpx;
 }
 .integral_list_wrap{
@@ -96,7 +96,7 @@
     margin:10rpx auto 0 auto;
     width: 80rpx;
 
-    line-height: 28rpx;
+    /* line-height: 28rpx; */
     font-size: 24rpx;
     text-align: center;
     color: rgb(51,51,51);

@@ -28,7 +28,7 @@
     </view>
     <view class='btn'>
         <navigator url='/pages/level/level' hover-class='none'>
-            <button>查看会员特权</button>
+            <button type='primary'>查看会员特权</button>
         </navigator>
     </view>
     <view class='rule'>

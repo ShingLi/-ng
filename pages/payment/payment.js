@@ -2,7 +2,7 @@
 const app = getApp()
 const url  =app.baseUrl;
 const Dialog = require('../../lib/dist/dialog/dialog')
-
+var mark = true
 import util from '../../utils/index.js'
 
 Page({
@@ -13,19 +13,8 @@ Page({
                 show: false
             }
         },
-        items: [
-            {
-                padding: 2,
-                value: '1',
-                name: '优惠券名字',
-            },
-            {
-                padding:2,
-                value: '2',
-                name: '优惠券',
-            }
-        ],
-        checkedValue: '1',
+        zhen:0,
+        checkedValue: '',
         activeColor: '#ff4443'
     },
     onLoad: function (options) {
@@ -50,17 +39,59 @@ Page({
             self.setData({
                 result
             })
-            if(!this.data.result){
+
+            const LEN = Object.keys(this.data.result.order_info).length
+
+            if(!Object.keys(this.data.result.order_info).length){
+                // 没有数据是加载toast 给用户提示没有数据
                 this.customCallback()
+            }else{
+                self.setData({
+                    LEN
+                })
             }
         })
+    },
+    switchChange(e){
+        // console.log('switch发生 change 事件，携带值为', e.detail.value)
+        let items = [],
+            coupon_list = this.data.result.coupon_list;
+
+        if (e.detail.value){
+            
+            if(mark){
+                mark = false
+                coupon_list.forEach((item) => {
+                    item.value = item.coupon_sn;
+                    item.name = `${item.amount}元优惠券`
+                })
+                console.log(coupon_list)
+                this.setData({
+                    coupon_list
+                })
+                
+            }
+            this.setData({
+                zhen: 1,
+                checkedValue: this.data.coupon_list[0].value
+            })
+            wx.pageScrollTo({
+                scrollTop: 500,
+                duration: 300
+            })
+        }else{
+            this.setData({
+                zhen: 0
+            })
+        }
+       
     },
     pay(e){
         //确认支付的
         // console.log(e)
         // 订单的id
         let id  = e.currentTarget.dataset.id
-
+        console.log("订单的id是"+id)
         this.handleClick(id)
        
     },
@@ -104,7 +135,7 @@ Page({
             }]
         }).then(({ type }) => {
             // type 可以用于判断具体是哪一个按钮被点击
-            console.log('=== dialog with custom buttons ===', `type: ${type}`)
+            console.log( `type: ${type}`)
 
             this._switch(order_id,{ type })
         });
@@ -136,6 +167,9 @@ Page({
     },
     handleSelectChange({ detail }) {
         console.log(detail);
+        this.setData({
+            checkedValue:detail.value
+        })
     },
     // 支付付款账单
     _paying_bill(order_id, pay_way){
@@ -146,10 +180,46 @@ Page({
             data:{
                 session3rd: wx.getStorageSync('session3rd'),
                 order_id,
-                pay_way
+                pay_way,
+                use_coupon:this.data.zhen,
+                coupon_sn: this.data.checkedValue
             }
         }).then(res=>{
             console.log(res)
+
+            if(parseInt(pay_way)==1){
+
+            }else{
+                // 微信支付
+                console.log('微信支付')
+                const { appId, nonceStr , sign ,signType ,timeStamp } = res.result
+                const _package = res.result.package;
+                
+                wx.requestPayment({
+                    'timeStamp': timeStamp,
+                    'nonceStr': nonceStr,
+                    'package': _package,
+                    'signType': signType,
+                    'paySign': sign,
+                    'success': function (res) {
+                        if (err.errMsg == 'requestPayment:ok') {
+                            wx.showToast({
+                                title: '支付成功',
+                                
+                            })
+                        }
+                    },
+                    'fail': function (err) {
+                        console.log(err)
+                        if (err.errMsg =='requestPayment:fail cancel'){
+                            wx.showToast({
+                                title: '支付取消',
+                                icon:'loading'
+                            })
+                        }
+                    }   
+                })
+            }
         })
     }
 

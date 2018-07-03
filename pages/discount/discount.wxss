@@ -23,7 +23,7 @@
     line-height: 80rpx;
     color: #fff;
     font-size: 36rpx;
-    background-color: rgb(51,51,51)
+    
 }
 .rule{
     margin:0 75rpx;

@@ -19,25 +19,67 @@
         ></image>
         <text>笑脸卡</text>
     </view>
-    <view class='smile_wrap'>
-        <!--3张背景图  -->
-        <image class='smile_bg' src='../../images/smile.png' wx:if='{{showCode===0}}'></image>
-        <image class='smile_bg' src='../../images/smile_g.png' wx:if='{{showCode===1}}'></image>
-        <image class='smile_bg' src='../../images/smile_gg.png' wx:if='{{showCode===2}}'></image>
-        <!--内容  -->
-        <view class='box'>
-            <!--笑脸  -->
-            <!--遍历的区域  -->
-            <view class='smile_item' wx:for='{{smile}}'>
-                <image class='smile_icon {{smile_icon[1]}}'></image>
-                <text class='time'>2018-05-18</text>
-                <view class='address'>苏宁店</view>
+    <view style='padding-bottom:60rpx'>
+        <block wx:for="{{unuse_list}}" wx:key='*this'>
+            <view class='smile_wrap'>
+                <!--3张背景图  -->
+                <image class='smile_bg' src='../../images/smile.png' wx:if='{{showCode===0}}'></image>
+                <image class='smile_bg' src='../../images/smile_g.png' wx:if='{{showCode===1}}'></image>
+                <image class='smile_bg' src='../../images/smile_gg.png' wx:if='{{showCode===2}}'></image>
+                <!--内容  -->
+                <view class='box'>
+                    <!--笑脸  -->
+                    <!--遍历的区域  -->
+                    <view class='heg'>
+                        <view class='smile_item' wx:for='{{item.face_list}}' wx:for-item="current" wx:for-index='idx' wx:key='idx'>
+                            <image class='smile_icon smile_y'></image>
+                            <text class='time'>{{current.addtime}}</text>
+                            <view class='address'>{{current.store_name}}</view>
+                        </view>
+                        <view class='smile_item' wx:for="{{item.item_cha}}" wx:for-index='idxx' wx:key='idxx'> 
+                            <image class='smile_icon smile_x'></image>
+                        </view>
+                    </view>
+                    <!--  -->
+                    <view class='bottom'>
+                        <text class='describle'>集满十张笑脸卡可兑换一次免费用餐机会</text>
+
+                        <button class='duihuan canchange' bindtap='canchange' wx:if="{{item.face_list.length==10}}">兑换</button>
+                        <button class='duihuan changeing' bindtap='changeing' wx:else>兑换</button>
+                        
+                    </view>
+                </view>
             </view>
-            <!--  -->
-            <view class='bottom'>
-                <text class='describle'>集满十张笑脸卡可兑换一次免费用餐机会</text>
-                <button class='duihuan {{btn_color[1]}}' bindtap='exchange'>兑换</button>
+        </block>
+        <!--已经兑换的笑脸卡  -->
+        <block wx:for="{{use_list}}" wx:key='*this' wx:if='{{use_list.length}}'>
+            <view class='smile_wrap'>
+                <!--3张背景图  -->
+                <image class='smile_bg' src='../../images/smile_gg.png'></image>
+                <!--内容  -->
+                <view class='box'>
+                    <!--遍历的区域  -->
+                    <view class='heg'>
+                        <view class='smile_item' wx:for='{{item.face_list}}' wx:for-item="current" wx:for-index='idx' wx:key='idx'>
+                            <image class='smile_icon smile_g'></image>
+                            <text class='time'>{{current.addtime}}</text>
+                            <view class='address'>{{current.store_name}}</view>
+                        </view>
+                        
+                    </view>
+                    <!--  -->
+                    <view class='bottom'>
+                        <text class='describle'>集满十张笑脸卡可兑换一次免费用餐机会</text>
+                        <button class='duihuan changeed'>已兑换</button>
+                    </view>
+                </view>
             </view>
-        </view>
+        </block>
     </view>
+</view>
+<!--暂无数据  -->
+<view class="nomore full" wx:if='{{nomore}}'>
+    <view class="line"></view>
+    <view class="text">暂无数据</view>
+    <view class="line"></view>       
 </view>

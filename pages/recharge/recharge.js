@@ -16,6 +16,9 @@ Page({
                 userInfo
             })
         }
+        
+    },
+    onShow(){
         this._initGetuser_balance()
     },
     _initGetuser_balance(){

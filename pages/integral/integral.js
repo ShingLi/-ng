@@ -23,7 +23,7 @@ Page({
                 session3rd: wx.getStorageSync('session3rd')
             }
         }).then(res=>{
-            console.log(res)
+            // console.log(res)
             let integral = res.result
             self.setData({
                 integral
@@ -41,7 +41,7 @@ Page({
                 eid
             }
         }).then(res=>{
-            console.log(res)
+            // console.log(res)
             let { code } = res
             code = parseInt(code)
             switch (code){
@@ -50,6 +50,8 @@ Page({
                         title: '兑换成功',
                         duration: 1200
                     })
+                    // 重新获取下数据
+                    self._initGetIntegral()
                 break;
                 case 121:
                     wx.showToast({

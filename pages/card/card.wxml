@@ -26,7 +26,7 @@
     </view>
     <swiper bindchange='switchTab' 
             current='{{currentIndex}}' 
-            style="height:100%;"
+            style="height:{{swiperHeight}}rpx"
             >
         <!--未使用 -->
         <swiper-item class='swiper-item'>

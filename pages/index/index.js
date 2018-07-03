@@ -6,8 +6,7 @@ const url  = app.baseUrl
 Page({
     data: {
         userInfo: {},
-        hasUserInfo: false,
-        canIUse: wx.canIUse('button.open-type.getUserInfo')
+        hasUserInfo: false
     },
     onLoad(){
         app._getUserInfo().then(res=>{
@@ -50,7 +49,7 @@ Page({
                     }) 
                     let code = app.globalData.code                    
                     let { encryptedData, iv, signature, rawData } = result
-                    console.log('重新登录```')
+                    // console.log('重新登录```')
                     this.Login(code, rawData, signature, encryptedData, iv)
                 }else{
                     let userInfo = res.result

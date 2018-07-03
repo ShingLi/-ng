@@ -21,6 +21,8 @@
     </view>
     
     <!--视图  -->
+    <view wx:if="{{LEN}}">
+    <!--  -->
     <view class='swiperWrap'>
         <!--item  消费-->
         <block>
@@ -67,17 +69,28 @@
             <radio value="{{item.coupon_name}}"/>{{item.item.coupon_name}}
             </label>
         </radio-group> -->
-         <zan-select
-            items="{{items}}"
-            checkedValue="{{ checkedValue }}"
-            activeColor="{{ activeColor }}"
-            bind:change="handleSelectChange"
-        /> 
+        <view class='form_wrap'>
+            <zan-cell title="是否使用优惠券" wx:if="{{result.coupon_list.length}}">
+               <switch slot="footer" bindchange='switchChange'/>
+            </zan-cell>
 
-        <view class='pay' wx:if='{{result}}'>
-            <button bindtap='pay' data-id='{{result.order_info.id}}'>确认并支付</button>
+            <block wx:if="{{zhen}}">
+                <zan-select
+                    items="{{coupon_list}}"
+                    checkedValue="{{ checkedValue }}"
+                    activeColor="{{ activeColor }}"
+                    bind:change="handleSelectChange"
+                />
+            </block>
+
+            <view class='pay' wx:if='{{result}}'>
+                <button bindtap='pay' data-id='{{result.order_info.id}}' type='primary'>确认并支付</button>
+            </view>
         </view>
+        
     </form>
+        <!--  -->
+    </view>
     
     <!--没有数据时显示  -->
     <zan-toptips content="暂时没有支付账单数据！" duration="{{ duration }}" is-show="{{ $zanui.toptips.show }}"/>

@@ -27,7 +27,7 @@
         <text>我的余额</text>
         <view>￥{{user_balance}}</view>
         <navigator url='/pages/recharge_detail/detail'>
-            <button class='append'>充值</button>
+            <button class='append' type='primary'>充值</button>
         </navigator>
         <navigator url='/pages/reflect_detail/detail'>
             <button>提现</button>

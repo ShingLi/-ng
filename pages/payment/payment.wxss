@@ -200,11 +200,15 @@
 }
 .pay{
     margin:auto ;
-    width: 320rpx;
+    margin-top: 50rpx;
 }
 .pay button{
     /* margin-top: 100rpx; */
     font-size: 30rpx;
     color: #fff;
-    background-color: rgb(51,51,51)
+    /* background-color: rgb(51,51,51) */
+}
+.form_wrap{
+    margin: 0 82rpx;
+    padding-bottom: 30rpx;
 }

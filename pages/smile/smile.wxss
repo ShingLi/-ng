@@ -2,7 +2,7 @@
 .smile_wrap{
     position: relative;
     width: 100%;
-    margin:20rpx 0 30rpx 0;
+    margin:20rpx 0 60rpx 0;
     
 }
 .smile_bg{
@@ -18,6 +18,13 @@
 }
 .box{
     margin: 0rpx 45rpx 0 45rpx;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center
+}
+.heg{
+    height: 400rpx;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -57,6 +64,7 @@
     margin-top: 20rpx;
     display: flex;
     align-items: center;
+    padding-left: 20rpx;
 }
 .describle{
     font-size: 24rpx;
@@ -82,5 +90,28 @@
 }
 .duihuan.changeed{
     color:rgb(51,51,51);
-    background-color: rgb(153,153,153)
+    background-color: #BDBDBD;
 }
+
+.full{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
+.nomore{
+        display:flex;
+        width:80%;
+        margin:0 auto;
+    }
+    .line{
+                flex:1;
+                position:relative;
+                top:-8px;
+                border-bottom: 1px solid rgba(7,17,27,.2)
+            }
+            .text{
+                margin:0 auto;
+                padding: 0 12px;
+                font-size: 14px;
+            }

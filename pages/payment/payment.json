@@ -2,6 +2,7 @@
     "usingComponents": {
         "zan-toptips": "../../lib/dist/toptips/index" ,
         "zan-dialog": "../../lib/dist/dialog/index",
-        "zan-select": "../../lib/dist/select/index"
+        "zan-select": "../../lib/dist/select/index",
+        "zan-cell": "../../lib/dist/cell/index"
     }
 }

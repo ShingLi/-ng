@@ -52,7 +52,8 @@ Page({
                 unuse_coupon,
                 used_coupon
             })
-
+            this._initSetHeight()
+            
             if (!unuse_coupon.length){
                 self.customCallback(UNUSE_TITLE)
                 return 
@@ -105,8 +106,8 @@ Page({
         // console.log(this.data.userItem.length)
         const CZ_Hg = 196
         // 先获取2个数组的长度进行比较
-        let uesr_len = this.data.userItem.length,
-            usered_len = this.data.useredItem.length;
+        let uesr_len = this.data.unuse_coupon.length,
+            usered_len = this.data.used_coupon.length;
         let max_ = this.max(uesr_len, usered_len),
             num = Math.round(max_ / 2);
             
