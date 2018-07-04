@@ -92,9 +92,15 @@
         <!--  -->
     </view>
     
-    <!--没有数据时显示  -->
-    <zan-toptips content="暂时没有支付账单数据！" duration="{{ duration }}" is-show="{{ $zanui.toptips.show }}"/>
+
     <!-- dialog 框  -->
     <zan-dialog id="zan-dialog"></zan-dialog>
+    <!--暂时没有数据  -->
+    <view class='nomore full' wx:if="{{!LEN}}">
+        <view class='line'></view>
+        <view class='text'>暂时没有数据</view>
+        <view class='line'></view>
+    </view>
+    
 </view>
 

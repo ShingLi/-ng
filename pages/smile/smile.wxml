@@ -76,10 +76,11 @@
             </view>
         </block>
     </view>
+    <!--暂无数据  -->
+    <view class="nomore full" wx:if='{{nomore}}'>
+        <view class="line"></view>
+        <view class="text">暂无数据</view>
+        <view class="line"></view>       
+    </view>
 </view>
-<!--暂无数据  -->
-<view class="nomore full" wx:if='{{nomore}}'>
-    <view class="line"></view>
-    <view class="text">暂无数据</view>
-    <view class="line"></view>       
-</view>
+

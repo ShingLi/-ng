@@ -8,11 +8,11 @@ Page({
         userInfo: {},
         hasUserInfo: false
     },
-    onLoad() {
+    onShow() {
         app._getUserInfo().then(res => {
             if (res) {
                 // 这里等待getUserInfo的返回值
-                // console.log(res)
+                console.log(res)
                 this.setData({
                     hasUserInfo: false
                 })
@@ -50,11 +50,12 @@ Page({
                         icon: 'loading'
                     })
                     let { encryptedData, iv, signature, rawData } = result
+                    console.log(result)
                     wx.login({
-                        success:res=>{
-                            let code = res.code 
+                        success:_res=>{
+                            let code = _res.code 
                             
-                            // console.log('重新登录```')
+                            console.log('重新登录```')
                             this.Login(code, rawData, signature, encryptedData, iv)
                         }
                     })
@@ -72,7 +73,17 @@ Page({
                 console.log(err)
             })
         } else {
-            console.log("没有session3rd")
+            console.log("没有session3rd",result)
+            
+            let { encryptedData, iv, signature, rawData } = result
+            wx.login({
+                success: _res => {
+                    let code = _res.code
+
+                    // console.log('重新登录```')
+                    this.Login(code, rawData, signature, encryptedData, iv)
+                }
+            })
             // this.setData({
             //     hasUserInfo: true
             // })
@@ -80,6 +91,7 @@ Page({
     },
     // 重新登录
     Login(code, rawData, signature, encryptedData, iv) {
+        // console.dir(code, rawData, signature, encryptedData, iv)
         util.request({
             url: `${url}/api/user/wxlogin`,
             data: {
@@ -97,7 +109,9 @@ Page({
                 wx.setStorageSync('session3rd', session3rd)
 
                 // 登陸成功后調用首頁信息的接口
-                this._indexInfo()
+                app._getUserInfo().then(res=>{
+                    this._indexInfo(res)
+                })
 
             } else {
                 // 如果有值就覆盖吊之前的

@@ -36,4 +36,10 @@
         </block>
     </view>
 </view>
-
+<!--暂无数据的  -->
+<view class='nomore full' wx:if="{{!result.length}}">
+    <view class='line'></view>
+    <view class='text'>暂时没有数据</view>
+    <view class='line'></view>
+</view>
+    

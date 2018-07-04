@@ -22,15 +22,22 @@
     <!-- 积分详细 -->
     <view class='integral_list'>
     <!--循坏的列表  -->
-        <view class='item' wx:for="{{result}}" wx:key='*this'>
-            <image class='time' src='../../images/time.png'></image>
-            <view class='time_list'>
-                <view>{{item.time}}</view>
-                <view class='mb'>
-                    {{item.title}}
-                    <text>{{item.active}}</text>
+        <block wx:if="{{result.length}}">
+            <view class='item' wx:for="{{result}}" wx:key='*this'>
+                <image class='time' src='../../images/time.png'></image>
+                <view class='time_list'>
+                    <view>{{item.time}}</view>
+                    <view class='mb'>
+                        {{item.title}}
+                        <text>{{item.active}}</text>
+                    </view>
                 </view>
             </view>
+        </block>
+        <view class='nomore full' wx:else>
+            <view class='line'></view>
+            <view class='text'>暂时无积分明细数据</view>
+            <view class='line'></view>
         </view>
     </view>
 </view>

@@ -40,7 +40,8 @@ progress{
     color: rgb(254,254,254)
 }
 .hehe{
-    margin-top: 15rpx;
+    display: inline-block;
+    margin-top: 10rpx;
     font-size: 20rpx;
     color: rgb(254,254,254)
 }

@@ -32,7 +32,7 @@
         </navigator>
     </view>
     <!--积分列表  -->
-    <view class='integral_list_wrap'wx:if="{{integral}}">
+    <view class='integral_list_wrap' wx:if="{{integral.exchange_list.length}}">
         <view class='more'>
             <view class='line'></view>
             <view class='text'>积分兑换</view>
@@ -55,5 +55,9 @@
         </view>
         <!--  -->
     </view>
-
+    <view class='more' wx:else>
+        <view class='line'></view>
+        <view class='text'>暂无数据</view>
+        <view class='line'></view>
+    </view>
 </view>

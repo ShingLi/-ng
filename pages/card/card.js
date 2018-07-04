@@ -9,13 +9,7 @@ Page({
         unuse_coupon:[],//未使用
         used_coupon:[],//已使用
         swiperHeight:0,//动态设置swiper的高度
-        tips:'',
-        duration: 2500,
-        $zanui: {
-            toptips: {
-                show: false
-            }
-        }
+        
     },
     onLoad(){
         let userInfo = app.globalData.userInfo
@@ -54,13 +48,10 @@ Page({
             })
             this._initSetHeight()
             
-            if (!unuse_coupon.length){
-                self.customCallback(UNUSE_TITLE)
-                return 
-            }
-            if (!used_coupon.length){
-                self.customCallback(USED_TITLE)
-                return 
+            if ((!unuse_coupon.length) && (!used_coupon.length)){
+                self.setData({
+                    zhen:true
+                })
             }
             
         })

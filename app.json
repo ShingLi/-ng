@@ -21,8 +21,8 @@
         "pages/recharge/recharge",
         "pages/message/message",
         "pages/giving/giving",
-        "pages/integral_detail/integral_detail",
         "pages/integral/integral",
+        "pages/integral_detail/integral_detail",
         "pages/reflect/reflect"
     ],
     "window":{

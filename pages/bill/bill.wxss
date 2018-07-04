@@ -190,14 +190,27 @@
     
     margin-right: 65rpx;
 }
-/*没有数据时候的显示  */
-.noResult{
+/*没有数据  */
+.full{
     position: fixed;
-    top: 50%;
-    width: 100%;
-    left: 0;
-    text-align: center;
-    color: #777;
-    font-size: 24rpx;
-    z-index: 9;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
 }
+ .nomore{
+        display:flex;
+        width:80%;
+        margin:0 auto;
+            
+    }
+    .line{
+                flex:1;
+                position:relative;
+                top:-8px;
+                border-bottom: 1px solid rgba(7,17,27,.2)
+            }
+            .text{
+                margin:0 auto;
+                padding: 0 12px;
+                font-size: 14px;
+            }

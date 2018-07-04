@@ -1,7 +1,7 @@
 <!--pages/modifyTel/modifyTel.wxml-->
 <view class='ccontainer'>
     <view class='top'>
-        <image class='lock' src='../../images/userCenter/lock.png'></image>
+        <image class='lock' src='../../images/lock.png'></image>
         <view>绑定手机号</view>
     </view>
     <form bindsubmit="formSubmit">

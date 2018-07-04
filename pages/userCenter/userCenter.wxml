@@ -45,8 +45,8 @@
          <view class='cell'>
             <label>支付验证</label>
             <view class='cell_right'>
-                <text class='tel_text' wx:if="{{userCenterInfo.is_pay_pwd}}" bindtap='setBind'>设置绑定</text>
-                <text class='tel_text' wx:else bindtap='resetMobile'>修改支付密码</text>
+                <text class='tel_text'  bindtap='setBind'>设置绑定</text>
+                <!-- <text class='tel_text' wx:else bindtap='resetMobile'>修改支付密码</text> -->
                 <image class='arrow' src='../../images/usercenter/arrow.png'></image>
             </view>
         </view>

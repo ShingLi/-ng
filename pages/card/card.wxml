@@ -101,9 +101,10 @@
             </view>
         </swiper-item>
     </swiper>
-    <zan-toptips
-        content="{{tips}}"
-        duration="{{ duration }}"
-        is-show="{{ $zanui.toptips.show }}"
-    />
+    <!--暂时没有数据  -->
+    <view class='nomore full' wx:if="{{zhen}}">
+        <view class='line'></view>
+        <view class='text'>暂时没有数据</view>
+        <view class='line'></view>
+    </view>
 </view>

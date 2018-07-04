@@ -8,11 +8,6 @@ import util from '../../utils/index.js'
 Page({
     data: {
         duration: 2000,
-        $zanui: {
-            toptips: {
-                show: false
-            }
-        },
         zhen:0,
         checkedValue: '',
         activeColor: '#ff4443'
@@ -48,7 +43,7 @@ Page({
 
             if(!Object.keys(this.data.result.order_info).length){
                 // 没有数据是加载toast 给用户提示没有数据
-                this.customCallback()
+                // this.customCallback()
             }else{
                 self.setData({
                     LEN

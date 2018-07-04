@@ -177,8 +177,11 @@
         </swiper-item>
     </swiper>
     <!--没有数据时显示  -->
-    <view class='noResult' wx:else>
-            抱歉，暂无数据 :(
+    <!--暂时没有数据  -->
+    <view class='nomore full' wx:if="{{!allList.length}}">
+        <view class='line'></view>
+        <view class='text'>暂时没有数据</view>
+        <view class='line'></view>
     </view>
 </view>
 
