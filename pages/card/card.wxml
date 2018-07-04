@@ -69,7 +69,7 @@
             <view>
                 <block wx:for='{{used_coupon}}' wx:key='*this'>
                     <view class='card-item'>
-                        <image src='../../images/juan.png' class='card-bg' mode='scaleToFill'></image>
+                        <image src='../../images/juan1.png' class='card-bg' mode='scaleToFill'></image>
                         <view class='box'>
                             <!--文字或者图片  -->
                             <view class='box-left'>
