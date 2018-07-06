@@ -79,5 +79,11 @@ Page({
                 break;
             }
         })
+    },
+    iloveyou(){
+        wx.showModal({
+            title: '兑换失败',
+            content: '已经兑换过不能再次兑换',
+        })
     }
 })

@@ -3,10 +3,17 @@ const app = getApp()
 const url = app.baseUrl
 
 import util from '../../utils/index.js'
+
+const Dialog = require('../../lib/dist/dialog/dialog');
 Page({
 
     data: {
-        
+        duration: 1000,
+        $zanui: {
+            toptips: {
+                show: false
+            }
+        }
     },
     onLoad: function (options) {
         let userInfo = app.globalData.userInfo
@@ -87,5 +94,56 @@ Page({
                 
             }
         })
+    },
+    deleteMsg(e){
+        var self = this
+        // console.log("长按的事件")
+        let message_id = e.currentTarget.dataset.id
+        Dialog({
+            title: '删除消息',
+            message: '您确实要删除此条消息吗？',
+            showCancelButton:true,	
+            selector: '#zan-dialog-test'
+        }).then((res) => {
+            if (res.type =='confirm'){
+
+                util.request({
+                    url: `${url}/api/user/user_delete_message`,
+                    data:{
+                        session3rd: wx.getStorageSync('session3rd'),
+                        message_id
+                    }
+                }).then(res=>{
+                    console.log(res)
+                    let { code } = res
+                    if(code==201){
+                        this.customCallback()
+                        this._initGetInfo()
+                    }
+                })
+            }
+        }).catch(err=>{
+            console.log(err)
+        })  
+       
+    },
+    customCallback() {
+        this.setData({
+            $zanui: {
+                toptips: {
+                    show: true
+                }
+            }
+        });
+
+        setTimeout(() => {
+            this.setData({
+                $zanui: {
+                    toptips: {
+                        show: false
+                    }
+                }
+            })
+        }, this.data.duration);
     }
 })

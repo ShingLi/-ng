@@ -51,7 +51,7 @@
                 <view class='line'></view>
             </view>
             <!-- 已读消息 -->
-            <view class='item' wx:for='{{result.ready_message}}' wx:key='item.id'>
+            <view class='item' wx:for='{{result.ready_message}}' wx:key='item.id' bindlongpress='deleteMsg' data-id='{{item.id}}'>
                 <view class='top' catchtap='readMsg' data-index='{{index}}'>
                     <image src='../../images/01/yidu.png' class='laba'></image>
                     <!--内容区域  -->
@@ -78,3 +78,5 @@
         <view class='line'></view>
     </view>
 </view>
+<zan-dialog id="zan-dialog-test"></zan-dialog>
+<zan-toptips duration="{{ duration }}" is-show="{{ $zanui.toptips.show }}" content='删除成功'/>

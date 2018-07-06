@@ -70,7 +70,7 @@
                     <!--  -->
                     <view class='bottom'>
                         <text class='describle'>集满十张笑脸卡可兑换一次免费用餐机会</text>
-                        <button class='duihuan changeed'>已兑换</button>
+                        <button class='duihuan changeed' bindtap='iloveyou'>已兑换</button>
                     </view>
                 </view>
             </view>
